@@ -14,22 +14,22 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 const HEADER_CONTENT = {
   pt: {
     navItems: [
-      { label: 'Problema', href: '#problema' },
+      { label: 'O Problema', href: '#problema' },
       { label: 'Sobre Nós', href: '#sobre' },
-      { label: 'Solução', href: '#solucao' },
-      { label: 'Nosso Time', href: '#time' },
-      { label: 'Contato', href: '#contato' },
+      { label: 'A Solução', href: '#solucao' },
+      { label: 'A Nossa Equipa', href: '#time' },
+      { label: 'Contacto', href: '#contato' },
     ]
   },
   en: {
-    navItems: [
-      { label: 'The Problem', href: '#problema' },
-      { label: 'About Us', href: '#sobre' },
-      { label: 'Our Solution', href: '#solucao' },
-      { label: 'Our Team', href: '#time' },
-      { label: 'Contact', href: '#contato' },
-    ]
-  }
+  navItems: [
+    { label: 'The Problem', href: '#problema' },
+    { label: 'About Us', href: '#sobre' },
+    { label: 'The Solution', href: '#solucao' },
+    { label: 'Our Team', href: '#time' },
+    { label: 'Contact', href: '#contato' },
+  ]
+}
 }
 
 // Componente para renderizar bandeiras de forma consistente

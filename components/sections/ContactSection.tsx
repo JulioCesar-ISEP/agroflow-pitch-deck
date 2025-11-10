@@ -15,33 +15,33 @@ import ErrorIcon from '@mui/icons-material/Error'
 const CONTACT_CONTENT = {
   pt: {
     title: "Contacte-nos",
-    subtitle: "Pronto para implementar irrigação inteligente?",
+    subtitle: "Pronto para implementar rega inteligente?",
     formTitle: "Solicitar Demonstração",
-    nameLabel: "Seu Nome",
-    emailLabel: "Seu Email",
+    nameLabel: "O Seu Nome",
+    emailLabel: "O Seu Email",
     messageLabel: "Como podemos ajudar?",
     sendButton: "Enviar Mensagem",
-    sending: "Enviando...",
-    contactTitle: "Informações",
-    email: "contato@agroflow.pt",
+    sending: "A Enviar...",
+    contactTitle: "Informações de Contacto",
+    email: "contacto@agroflow.pt",
     phone: "+351 900 000 000",
     hours: "Segunda a Sexta: 8h às 18h",
     location: "Porto, Portugal",
-    successMessage: "Mensagem enviada com sucesso! Em breve, nossa equipe entrará em contacto.",
-    errorMessage: "Erro ao enviar mensagem. Tente novamente.",
+    successMessage: "Mensagem enviada com sucesso! Em breve, a nossa equipa entrará em contacto.",
+    errorMessage: "Erro ao enviar a mensagem. Por favor, tente novamente.",
     validationErrors: {
-      nameTooShort: "Nome deve ter pelo menos 2 caracteres",
+      nameTooShort: "O nome deve ter pelo menos 2 caracteres",
       invalidEmail: "Email inválido",
-      messageTooShort: "Mensagem deve ter pelo menos 10 caracteres",
+      messageTooShort: "A mensagem deve ter pelo menos 10 caracteres"
     }
   },
   en: {
-    title: "Contact us",
+    title: "Contact Us",
     subtitle: "Ready to implement smart irrigation?",
     formTitle: "Request a Demo",
     nameLabel: "Your Name",
     emailLabel: "Your Email",
-    messageLabel: "How can we help you?",
+    messageLabel: "How can we assist you?",
     sendButton: "Send Message",
     sending: "Sending...",
     contactTitle: "Contact Information",
@@ -49,12 +49,12 @@ const CONTACT_CONTENT = {
     phone: "+351 900 000 000",
     hours: "Monday to Friday: 8AM to 6PM",
     location: "Porto, Portugal",
-    successMessage: "Message sent successfully! Our team will contact you shortly.",
+    successMessage: "Message sent successfully! Our team will be in touch shortly.",
     errorMessage: "Error sending message. Please try again.",
     validationErrors: {
-      nameTooShort: "Name must have at least 2 characters",
-      invalidEmail: "Invalid email",
-      messageTooShort: "Message must have at least 10 characters",
+      nameTooShort: "Name must be at least 2 characters",
+      invalidEmail: "Invalid email address",
+      messageTooShort: "Message must be at least 10 characters"
     }
   }
 }

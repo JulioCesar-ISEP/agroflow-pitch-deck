@@ -11,16 +11,16 @@ const HERO_CONTENT = {
   pt: {
     title: {
       line1: "Revolucione",
-      line2: "Sua Irrigação"
+      line2: "a Sua Rega"
     },
     stats: [
       { value: '35%', label: 'Menos Desperdício' },
-      { value: '50%', label: 'Poupança Hídrica' },
-      { value: '10km', label: 'Alcance' }
+      { value: '50%', label: 'Poupança de Água' },
+      { value: '10km', label: 'Alcance de Comunicação' }
     ],
     buttons: {
-      primary: "Descubra mais",
-      secondary: "Agendar Teste"
+      primary: "Saiba mais",
+      secondary: "Agendar Demonstração"
     }
   },
   en: {
@@ -29,33 +29,33 @@ const HERO_CONTENT = {
       line2: "Your Irrigation"
     },
     stats: [
-      { value: '35%', label: 'Less Waste' },
+      { value: '35%', label: 'Less Water Waste' },
       { value: '50%', label: 'Water Savings' },
-      { value: '10km', label: 'Range' }
+      { value: '10km', label: 'Communication Range' }
     ],
     buttons: {
-      primary: "Discover more",
-      secondary: "Schedule Test"
+      primary: "Learn more",
+      secondary: "Book a Demo"
     }
   }
 }
 
 const IMPACT_PHRASES = {
   pt: [
-    "Reduza até 35% do desperdício de água na sua agricultura",
-    "Tecnologia IoT que economiza água e aumenta produtividade", 
-    "Sistema autónomo com comunicação LoRa - até 10km de alcance",
-    "Machine Learning aplicado à irrigação inteligente",
-    "Até 50% de poupança hídrica com Irrigação Deficitária Controlada",
-    "Monitorize e controle sua rega remotamente 24/7"
+    "Reduza até 35% do desperdício de água na sua exploração agrícola",
+    "Tecnologia IoT que poupa água e aumenta a produtividade",
+    "Sistema autónomo com comunicação LoRa – até 10 km de alcance",
+    "Machine Learning aplicado à rega inteligente",
+    "Até 50% de poupança de água com Irrigação Deficitária Controlada",
+    "Monitorize e controle a sua rega remotamente, 24 horas por dia"
   ],
   en: [
-    "Reduce up to 35% of water waste in your agriculture",
-    "IoT technology that saves water and increases productivity",
-    "Autonomous system with LoRa communication - up to 10km range",
+    "Reduce water waste by up to 35% on your farm",
+    "IoT technology that saves water and boosts productivity",
+    "Autonomous system with LoRa communication – up to 10km range",
     "Machine Learning applied to smart irrigation",
-    "Up to 50% water savings with Controlled Deficit Irrigation",
-    "Monitor and control your irrigation remotely 24/7"
+    "Achieve up to 50% water savings with Controlled Deficit Irrigation",
+    "Monitor and control your irrigation remotely, 24/7"
   ]
 }
 

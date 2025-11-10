@@ -9,24 +9,24 @@ import Image from 'next/image'
 
 const FOOTER_CONTENT = {
   pt: {
-    tagline: "Tecnologia inteligente para agricultura sustentável",
+    tagline: "Regue com Precisão: Tecnologia ao Serviço da Água e da Sustentabilidade",
     linksTitle: "Navegação",
     about: "Sobre Nós",
-    solution: "Solução", 
-    team: "Nossa Equipe",
-    contact: "Contato",
+    solution: "A Solução", 
+    team: "A Nossa Equipa",
+    contact: "Contacto",
     contactTitle: "Contacto",
-    email: "contato@agroflow.pt",
+    email: "contacto@agroflow.pt",
     location: "Porto, Portugal",
     rights: "Todos os direitos reservados.",
     privacy: "Política de Privacidade",
     terms: "Termos de Serviço"
   },
   en: {
-    tagline: "Smart technology for sustainable agriculture",
+    tagline: "Irrigate with Precision: Technology at the Service of Water and Sustainability",
     linksTitle: "Navigation", 
     about: "About Us",
-    solution: "Solution",
+    solution: "The Solution",
     team: "Our Team",
     contact: "Contact",
     contactTitle: "Contact",

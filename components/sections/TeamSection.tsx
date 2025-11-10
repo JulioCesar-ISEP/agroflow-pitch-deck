@@ -8,14 +8,14 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 
 const TEAM_CONTENT = {
   pt: {
-    title: "Nossa Equipe",
-    subtitle: "Especialistas em tecnologia para agricultura sustentável",
+    title: "A Nossa Equipa",
+    subtitle: "Especialistas em tecnologia para uma agricultura sustentável",
     leonardo: {
       name: "Leonardo Antunes",
       role: "Programação Industrial & Python"
     },
     julio: {
-      name: "Júlio César", 
+      name: "Júlio César",
       role: "Desenvolvimento de Software"
     },
     daniel: {
@@ -26,7 +26,7 @@ const TEAM_CONTENT = {
       name: "Henrique Ernesto",
       role: "Infraestrutura & Hardware"
     },
-    description: "Equipe multidisciplinar especializada em programação industrial, desenvolvimento web, análise de dados e infraestrutura para soluções completas de agricultura inteligente.",
+    description: "Equipa multidisciplinar especializada em programação industrial, desenvolvimento web, análise de dados e infraestrutura para soluções completas de agricultura inteligente.",
     linkedin: "Ver LinkedIn"
   },
   en: {

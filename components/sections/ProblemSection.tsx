@@ -48,11 +48,11 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
   pt: {
     title: "Desperdício de Água na Agricultura",
     subtitle: "Um problema global com impacto crítico em Portugal",
-    
+
     problems: [
       {
-        title: 'Setor Agrícola Responsável por 75% de toda a água em Portugal',
-        description: 'A agricultura utiliza 75% de toda a água em Portugal, com sistemas de irrigação ultrapassados que causam desperdício massivo.',
+        title: 'Setor Agrícola Consome 75% da Água em Portugal',
+        description: 'A agricultura consome 75% da água em Portugal, com sistemas de rega obsoletos que causam desperdícios significativos.',
         icon: '💧',
         severity: 'Crítico',
         stat: '75%',
@@ -60,8 +60,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://visao.pt/visao_verde/ambiente/2021-03-18-setor-agricola-responsavel-por-75-da-agua-utilizada-em-portugal-estudo/'
       },
       {
-        title: 'Desafios Hídricos na Agricultura',
-        description: 'Portugal enfrenta desafios críticos na gestão de água no setor agrícola com falta de infraestrutura moderna e tecnologia.',
+        title: 'Desafios na Gestão Hídrica Agrícola',
+        description: 'Portugal enfrenta desafios críticos na gestão da água na agricultura, devido à falta de infraestruturas modernas e tecnologia.',
         icon: '🌾',
         severity: 'Crítico',
         stat: 'Crítico',
@@ -70,7 +70,7 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
       },
       {
         title: 'Uso da Água em Portugal',
-        description: 'Estudo completo da Fundação Gulbenkian sobre padrões de consumo e desperdício de água no país e suas consequências.',
+        description: 'Estudo da Fundação Gulbenkian sobre padrões de consumo e desperdício de água no país e respetivas consequências.',
         icon: '📊',
         severity: 'Crítico',
         stat: '50%+',
@@ -78,8 +78,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://gulbenkian.pt/wp-content/uploads/2020/06/Uso-da-%C3%A1gua-em-Portugal_Estudo-Gulbenkian.pdf'
       },
       {
-        title: 'Consumo e Desperdício de Água',
-        description: 'Análise detalhada de como e onde ocorre o desperdício de água nos sistemas agrícolas portugueses.',
+        title: 'Consumo e Desperdício na Agricultura',
+        description: 'Análise detalhada sobre como e onde ocorre o desperdício de água nos sistemas agrícolas portugueses.',
         icon: '⚙️',
         severity: 'Crítico',
         stat: '60%',
@@ -87,8 +87,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://acorus.pt/blog/consumo-e-desperdicio-de-agua'
       },
       {
-        title: 'Desperdício de Água Global',
-        description: 'Dados da FAO sobre desperdício de água no planeta, causas e consequências para a agricultura mundial.',
+        title: 'Desperdício Global de Água',
+        description: 'Dados da FAO sobre desperdício de água a nível mundial, causas e impactos na agricultura.',
         icon: '🌍',
         severity: 'Crítico',
         stat: '75%',
@@ -96,8 +96,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://openknowledge.fao.org/server/api/core/bitstreams/1a52bc62-2f53-48db-8b35-e0d67ba93053/content'
       },
       {
-        title: 'Causas e Consequências',
-        description: 'Relatório técnico sobre as causas raiz do desperdício de água e suas consequências para o meio ambiente.',
+        title: 'Causas e Impactos Ambientais',
+        description: 'Relatório técnico sobre as causas do desperdício de água e os seus impactos ambientais.',
         icon: '💧',
         severity: 'Alto',
         stat: 'Severo',
@@ -105,26 +105,26 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://aguasesaneamento.pt/acervo-tecnico/desperdicio-de-agua-no-planeta-causas-e-consequencias/'
       },
       {
-        title: 'Portugal desperdiçou 191 milhões de metros cúbicos de água em 2023',
-        description: 'Perdas nas redes de água custam quase 152 milhões',
+        title: 'Portugal desperdiçou 191 milhões de m³ de água em 2023',
+        description: 'As perdas nas redes de abastecimento custaram quase 152 milhões de euros.',
         icon: '🚰',
         severity: 'Alto',
         stat: '191M m³',
-        source: 'CNNportugal',
+        source: 'CNN Portugal',
         link: 'https://cnnportugal.iol.pt/ersar/abastecimento/perdas-nas-redes-de-agua-custam-quase-152-milhoes/20250310/67cea3c8d34e3f0bae9b6bfc'
       },
       {
-        title: 'Os setores com maior consumo de água são o agrícola (70%)',
-        description: 'A ficha temática "Escassez de água" analisa as disponibilidades hídricas em Portugal continental e as pressões quantitativas exercidas sobre as massas de água.',
+        title: 'Setor Agrícola é o Maior Consumidor de Água (70%)',
+        description: 'Ficha temática sobre escassez de água analisa a disponibilidade hídrica e pressões sobre os recursos em Portugal continental.',
         icon: '💧',
         severity: 'Crítico',
         stat: '70%',
-        source: 'REA Portal do estado do Ambiente',
+        source: 'REA - Portal do Estado do Ambiente',
         link: 'https://rea.apambiente.pt/content/escassez-de-%C3%A1gua#:~:text=Os%20setores%20com%20maior%20consumo,agravada%20no%20per%C3%ADodo%20mais%20recente.'
       }
     ],
 
-    watchVideo: 'Assistir',
+    watchVideo: 'Ver Vídeo',
     showMore: 'Mostrar Mais',
     showLess: 'Mostrar Menos',
     criticalStats: 'Estatísticas Críticas',
@@ -132,12 +132,12 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
   },
   en: {
     title: "Water Waste in Agriculture",
-    subtitle: "A global problem with critical impact in Portugal",
-    
+    subtitle: "A global issue with critical impact in Portugal",
+
     problems: [
       {
-        title: 'Agricultural Sector Responsible for 75%',
-        description: 'Agriculture uses 75% of all water in Portugal, with outdated irrigation systems causing massive waste.',
+        title: 'Agricultural Sector Uses 75% of Portugal’s Water',
+        description: 'Agriculture consumes 75% of Portugal’s water, with outdated irrigation systems causing significant waste.',
         icon: '💧',
         severity: 'Critical',
         stat: '75%',
@@ -145,8 +145,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://visao.pt/visao_verde/ambiente/2021-03-18-setor-agricola-responsavel-por-75-da-agua-utilizada-em-portugal-estudo/'
       },
       {
-        title: 'Water Challenges in Agriculture',
-        description: 'Portugal faces critical challenges in agricultural water management with lack of modern infrastructure and technology.',
+        title: 'Agricultural Water Management Challenges',
+        description: 'Portugal faces major challenges in agricultural water management due to lack of modern infrastructure and technology.',
         icon: '🌾',
         severity: 'Critical',
         stat: 'Critical',
@@ -154,8 +154,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://www.espaco-visual.pt/desafios-hidricos-agricultura-portuguesa/'
       },
       {
-        title: 'Water Use in Portugal',
-        description: 'Complete study by Gulbenkian Foundation on water consumption patterns and waste in the country and consequences.',
+        title: 'Water Usage in Portugal',
+        description: 'Comprehensive study by the Gulbenkian Foundation on water consumption and waste patterns in Portugal.',
         icon: '📊',
         severity: 'Critical',
         stat: '50%+',
@@ -173,7 +173,7 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
       },
       {
         title: 'Global Water Waste',
-        description: 'FAO data on water waste on the planet, causes and consequences for global agriculture.',
+        description: 'FAO data on global water waste, its causes and consequences for agriculture.',
         icon: '🌍',
         severity: 'Critical',
         stat: '75%',
@@ -181,8 +181,8 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://openknowledge.fao.org/server/api/core/bitstreams/1a52bc62-2f53-48db-8b35-e0d67ba93053/content'
       },
       {
-        title: 'Causes and Consequences',
-        description: 'Technical report on root causes of water waste and its environmental consequences.',
+        title: 'Causes and Environmental Impact',
+        description: 'Technical report on the root causes of water waste and its environmental consequences.',
         icon: '💧',
         severity: 'High',
         stat: 'Severe',
@@ -190,26 +190,26 @@ const PROBLEM_DATA: Record<'pt' | 'en', ProblemData> = {
         link: 'https://aguasesaneamento.pt/acervo-tecnico/desperdicio-de-agua-no-planeta-causas-e-consequencias/'
       },
       {
-        title: 'Portugal wasted 191 million cubic meters of water in 2023',
-        description: 'Water network losses cost almost 152 million',
+        title: 'Portugal Wasted 191 Million m³ of Water in 2023',
+        description: 'Losses in water supply networks cost nearly €152 million.',
         icon: '🚰',
         severity: 'High',
         stat: '191M m³',
-        source: 'CNNportugal',
+        source: 'CNN Portugal',
         link: 'https://cnnportugal.iol.pt/ersar/abastecimento/perdas-nas-redes-de-agua-custam-quase-152-milhoes/20250310/67cea3c8d34e3f0bae9b6bfc'
       },
       {
-        title: 'Sectors with highest water consumption are agricultural (70%)',
-        description: 'The "Water Scarcity" thematic sheet analyzes water availability in mainland Portugal and quantitative pressures on water bodies.',
+        title: 'Agriculture is the Largest Water Consumer (70%)',
+        description: 'Thematic sheet on water scarcity analyzes water availability and pressures on resources in mainland Portugal.',
         icon: '💧',
         severity: 'Critical',
         stat: '70%',
-        source: 'REA Environment State Portal',
+        source: 'REA - Environment State Portal',
         link: 'https://rea.apambiente.pt/content/escassez-de-%C3%A1gua#:~:text=Os%20setores%20com%20maior%20consumo,agravada%20no%20per%C3%ADodo%20mais%20recente.'
       }
     ],
 
-    watchVideo: 'Watch',
+    watchVideo: 'Watch Video',
     showMore: 'Show More',
     showLess: 'Show Less',
     criticalStats: 'Critical Statistics',

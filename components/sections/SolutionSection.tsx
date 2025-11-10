@@ -8,59 +8,59 @@ import Image from 'next/image'
 
 const SOLUTION_CONTENT = {
   pt: {
-    title: "Nossa Solução",
+    title: "A Nossa Solução",
     subtitle: "Tecnologia inteligente para revolucionar a gestão de recursos na agricultura",
     portalTitle: "AgroFlow Portal",
-    portalSubtitle: "Interface moderna para gestão completa da irrigação inteligente",
-    portalDescription: "Nosso portal web responsivo oferece controle total sobre o sistema de irrigação, com visualização em tempo real, relatórios detalhados e controle remoto de qualquer dispositivo.",
+    portalSubtitle: "Interface moderna para gestão completa da rega inteligente",
+    portalDescription: "O nosso portal web responsivo oferece controlo total sobre o sistema de rega, com visualização em tempo real, relatórios detalhados e controlo remoto a partir de qualquer dispositivo.",
     portalFeatures: [
-      "Dashboard em tempo real com dados do solo e clima",
-      "Controle manual remoto do sistema de irrigação",
-      "Relatórios de consumo e economia de água",
+      "Dashboard em tempo real com dados do solo e do clima",
+      "Controlo manual remoto do sistema de rega",
+      "Relatórios de consumo e poupança de água",
       "Gráficos evolutivos e previsões meteorológicas",
       "Compatibilidade total com desktop e mobile",
       "Alertas inteligentes e notificações"
     ],
     architectureTitle: "Arquitetura do Sistema",
-    architectureDescription: "Sistema modular com comunicação LoRa de longo alcance (até 10km) e processamento em nuvem com Machine Learning.",
+    architectureDescription: "Sistema modular com comunicação LoRa de longo alcance (até 10 km) e processamento em nuvem com Machine Learning.",
     solumTitle: "AgroFlow Solum",
     solumDescription: "Sensores inteligentes de solo com ESP32 e energia solar",
     solumFeatures: [
-      "Medição contínua de umidade do solo",
+      "Medição contínua da humidade do solo",
       "Autodiagnóstico e bateria solar",
-      "Comunicação LoRa (até 10km)",
-      "Armazenamento local em falhas"
+      "Comunicação LoRa (até 10 km)",
+      "Armazenamento local em caso de falhas"
     ],
-    aquaTitle: "AgroFlow Aqua", 
-    aquaDescription: "Controlador de irrigação com relés inteligentes",
+    aquaTitle: "AgroFlow Aqua",
+    aquaDescription: "Controlador de rega com relés inteligentes",
     aquaFeatures: [
-      "Controle preciso de válvulas",
+      "Controlo preciso de válvulas",
       "Acionamento por comandos remotos",
-      "Operação autônoma em falhas",
+      "Operação autónoma em caso de falhas",
       "Integração com sistemas existentes"
     ],
     caputTitle: "AgroFlow Caput",
     caputDescription: "Central de comunicação e processamento local",
     caputFeatures: [
       "Recebe dados dos sensores Solum",
-      "Retransmite comandos para Aqua",
-      "Armazenamento local autônomo",
-      "Comunicação web com servidor"
+      "Retransmite comandos para o Aqua",
+      "Armazenamento local autónomo",
+      "Comunicação web com o servidor"
     ],
-    serverTitle: "Servidor Central IA",
-    serverDescription: "Processamento com Machine Learning e analytics",
+    serverTitle: "Servidor Central com IA",
+    serverDescription: "Processamento com Machine Learning e análise de dados",
     serverFeatures: [
-      "Modelos de ML para eficiência",
+      "Modelos de ML para maior eficiência",
       "Integração com APIs meteorológicas",
-      "Decisão automática de irrigação",
-      "Banco de dados e analytics"
+      "Decisão automática de rega",
+      "Base de dados e analytics"
     ],
     resultsTitle: "Resultados Esperados",
     results: [
       "Redução de até 30% no consumo de água",
-      "Aumento de 25% na produtividade", 
-      "ROI em menos de 12 meses",
-      "Monitoramento 24/7 da plantação"
+      "Aumento de 25% na produtividade",
+      "Retorno do investimento em menos de 12 meses",
+      "Monitorização 24/7 da plantação"
     ]
   },
   en: {
@@ -68,54 +68,54 @@ const SOLUTION_CONTENT = {
     subtitle: "Smart technology to revolutionize resource management in agriculture",
     portalTitle: "AgroFlow Portal",
     portalSubtitle: "Modern interface for complete smart irrigation management",
-    portalDescription: "Our responsive web portal offers total control over the irrigation system, with real-time visualization, detailed reports and remote control from any device.",
+    portalDescription: "Our responsive web portal offers full control over the irrigation system, with real-time visualization, detailed reports, and remote access from any device.",
     portalFeatures: [
       "Real-time dashboard with soil and weather data",
-      "Remote manual control of irrigation system",
+      "Remote manual control of the irrigation system",
       "Water consumption and savings reports",
       "Evolution charts and weather forecasts",
       "Full desktop and mobile compatibility",
       "Smart alerts and notifications"
     ],
     architectureTitle: "System Architecture",
-    architectureDescription: "Modular system with long-range LoRa communication (up to 10km) and cloud processing with Machine Learning.",
+    architectureDescription: "Modular system with long-range LoRa communication (up to 10 km) and cloud-based processing using Machine Learning.",
     solumTitle: "AgroFlow Solum",
-    solumDescription: "Smart soil sensors with ESP32 and solar power",
+    solumDescription: "Smart soil sensors powered by ESP32 and solar energy",
     solumFeatures: [
       "Continuous soil moisture measurement",
       "Self-diagnosis and solar battery",
-      "LoRa communication (up to 10km)",
-      "Local storage in failures"
+      "LoRa communication (up to 10 km)",
+      "Local storage in case of failures"
     ],
     aquaTitle: "AgroFlow Aqua",
     aquaDescription: "Irrigation controller with smart relays",
     aquaFeatures: [
       "Precise valve control",
       "Remote command activation",
-      "Autonomous operation in failures",
+      "Autonomous operation during failures",
       "Integration with existing systems"
     ],
     caputTitle: "AgroFlow Caput",
-    caputDescription: "Communication hub and local processing",
+    caputDescription: "Communication hub and local processing unit",
     caputFeatures: [
       "Receives data from Solum sensors",
       "Retransmits commands to Aqua",
       "Autonomous local storage",
-      "Web communication with server"
+      "Web communication with the server"
     ],
     serverTitle: "AI Central Server",
-    serverDescription: "Processing with Machine Learning and analytics",
+    serverDescription: "Processing powered by Machine Learning and analytics",
     serverFeatures: [
-      "ML models for efficiency",
+      "ML models for improved efficiency",
       "Integration with weather APIs",
-      "Automatic irrigation decision",
+      "Automated irrigation decisions",
       "Database and analytics"
     ],
-    resultsTitle: "Estimated Results",
+    resultsTitle: "Expected Results",
     results: [
       "Up to 30% reduction in water consumption",
       "25% increase in productivity",
-      "ROI in less than 12 months", 
+      "ROI in less than 12 months",
       "24/7 crop monitoring"
     ]
   }

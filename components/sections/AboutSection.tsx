@@ -9,76 +9,76 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 const ABOUT_CONTENT = {
   pt: {
     title: "Sobre Nós",
-    subtitle: "Transformando dados em sustentabilidade agrícola",
+    subtitle: "Transformamos dados em sustentabilidade agrícola",
     missionTitle: "Missão",
     visionTitle: "Visão", 
-    mission: "Capacitar agricultores com tecnologia inteligente para otimizar o uso de recursos hídricos e aumentar a produtividade sustentável.",
-    vision: "Ser a referência global em soluções de agricultura digital que harmonizam produtividade e preservação ambiental.",
-    description: "Combinamos expertise em agronomia, ciência de dados e IoT para criar soluções práticas que resolvem desafios reais do campo.",
-    valuesTitle: "Nossos Valores",
+    mission: "Capacitar os agricultores com tecnologia inteligente para otimizar o uso da água e aumentar a produtividade de forma sustentável.",
+    vision: "Ser a referência global em soluções de agricultura digital que conciliam produtividade com preservação ambiental.",
+    description: "Aliamos conhecimento em agronomia, ciência de dados e IoT para criar soluções práticas que respondem a desafios reais do campo.",
+    valuesTitle: "Os Nossos Valores",
     sustainability: "Sustentabilidade",
     innovation: "Inovação",
     impact: "Impacto Mensurável",
-    teamTitle: "Expertise Multidisciplinar",
-    teamSubtitle: "Equipe com experiência combinada em:",
+    teamTitle: "Especialização Multidisciplinar",
+    teamSubtitle: "Equipa com experiência combinada em:",
     agronomy: "Agronomia & Agricultura",
-    technology: "Tecnologia & Data Science", 
+    technology: "Tecnologia & Ciência de Dados", 
     sustainabilityField: "Sustentabilidade Ambiental",
     odsTitle: "Compromisso com os ODS",
     odsSubtitle: "Trabalhamos diretamente com os Objetivos de Desenvolvimento Sustentável da ONU",
     ods2: {
-      title: "ODS 2 - Fome Zero",
-      description: "Agricultura sustentável para acabar com a fome e garantir segurança alimentar.",
+      title: "ODS 2 – Fome Zero",
+      description: "Agricultura sustentável para erradicar a fome e garantir segurança alimentar.",
       goal: "Aumentar a produtividade agrícola de forma sustentável"
     },
     ods12: {
-      title: "ODS 12 - Consumo Responsável",
-      description: "Garantir padrões de produção e consumo sustentáveis.",
-      goal: "Reduzir o desperdício de água e recursos naturais"
+      title: "ODS 12 – Consumo Responsável",
+      description: "Assegurar padrões sustentáveis de produção e consumo.",
+      goal: "Reduzir o desperdício de água e de recursos naturais"
     },
     ods13: {
-      title: "ODS 13 - Ação Climática", 
-      description: "Combater as mudanças climáticas e seus impactos.",
+      title: "ODS 13 – Ação Climática", 
+      description: "Combater as alterações climáticas e os seus impactos.",
       goal: "Mitigar emissões através da agricultura inteligente"
     },
-    cta: "Conheça Nossa Solução",
+    cta: "Conheça a Nossa Solução",
     learnMore: "Saiba Mais"
   },
   en: {
     title: "About Us",
-    subtitle: "Transforming data into agricultural sustainability", 
+    subtitle: "Turning data into agricultural sustainability", 
     missionTitle: "Mission",
     visionTitle: "Vision",
-    mission: "Empower farmers with smart technology to optimize water resources and increase sustainable productivity.",
-    vision: "Become the global reference in digital agriculture solutions that harmonize productivity and environmental preservation.",
-    description: "We combine expertise in agronomy, data science and IoT to create practical solutions that solve real field challenges.",
+    mission: "Empowering farmers with smart technology to optimize water usage and boost sustainable productivity.",
+    vision: "To become the global benchmark in digital agriculture solutions that balance productivity with environmental preservation.",
+    description: "We combine expertise in agronomy, data science, and IoT to develop practical solutions that address real-world agricultural challenges.",
     valuesTitle: "Our Values",
     sustainability: "Sustainability",
     innovation: "Innovation",
     impact: "Measurable Impact", 
     teamTitle: "Multidisciplinary Expertise",
-    teamSubtitle: "Team with combined experience in:",
+    teamSubtitle: "Our team brings combined experience in:",
     agronomy: "Agronomy & Agriculture",
     technology: "Technology & Data Science",
     sustainabilityField: "Environmental Sustainability",
-    odsTitle: "Commitment to SDGs",
-    odsSubtitle: "We work directly with UN Sustainable Development Goals",
+    odsTitle: "Commitment to the SDGs",
+    odsSubtitle: "We actively support the UN Sustainable Development Goals",
     ods2: {
-      title: "SDG 2 - Zero Hunger",
+      title: "SDG 2 – Zero Hunger",
       description: "Sustainable agriculture to end hunger and ensure food security.",
-      goal: "Increase agricultural productivity sustainably"
+      goal: "Boost agricultural productivity sustainably"
     },
     ods12: {
-      title: "SDG 12 - Responsible Consumption",
+      title: "SDG 12 – Responsible Consumption",
       description: "Ensure sustainable production and consumption patterns.", 
-      goal: "Reduce water waste and natural resources"
+      goal: "Reduce water waste and natural resource usage"
     },
     ods13: {
-      title: "SDG 13 - Climate Action",
+      title: "SDG 13 – Climate Action",
       description: "Combat climate change and its impacts.",
       goal: "Mitigate emissions through smart agriculture"
     },
-    cta: "Discover Our Solution",
+    cta: "Explore Our Solution",
     learnMore: "Learn More"
   }
 }
