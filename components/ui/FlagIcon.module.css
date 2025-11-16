@@ -1,0 +1,119 @@
+.flagContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--agroflow-background-paper);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.flagContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.flagImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Bandeira de Portugal em CSS */
+.portugal {
+  position: relative;
+  background: linear-gradient(90deg, #046600 40%, #FF0000 40%);
+}
+
+.portugal::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: 20%;
+  background: #FFCC00;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Bandeira do Reino Unido em CSS */
+.english {
+  position: relative;
+  background: #012169;
+}
+
+.english::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 40%, #C8102E 40%, #C8102E 60%, transparent 60%),
+    linear-gradient(0deg, transparent 40%, #C8102E 40%, #C8102E 60%, transparent 60%);
+}
+
+.english::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 45%, #C8102E 45%, #C8102E 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, #C8102E 45%, #C8102E 55%, transparent 55%);
+}
+
+/* Versão minimalista para temas escuros */
+[data-theme="dark"] .flagContainer {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .flagContainer {
+    transition: none;
+  }
+  
+  .flagContainer:hover {
+    transform: none;
+  }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+  .flagContainer {
+    border-width: 2px;
+    border-color: currentColor;
+  }
+  
+  .portugal::after {
+    border-width: 3px;
+  }
+}
+
+/* Responsive sizes */
+.flagSmall {
+  width: 16px;
+  height: 12px;
+}
+
+.flagMedium {
+  width: 24px;
+  height: 18px;
+}
+
+.flagLarge {
+  width: 32px;
+  height: 24px;
+}
+
+.flagXLarge {
+  width: 48px;
+  height: 36px;
+}

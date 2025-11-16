@@ -1,0 +1,900 @@
+/* components/Problem/Problem.module.css */
+
+.problem {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--agroflow-spacing-4xl) 0;
+  transition: all 0.3s ease-in-out;
+  background: transparent; /* o fundo vem agora do shell global */
+  scroll-margin-top: 80px;
+}
+
+/* Tema “light” explícito para evitar className "undefined" no DOM */
+.light {
+}
+
+/* Mantemos o .dark como modificador para internos (.problem.dark .header, etc.) */
+.dark {
+}
+
+/* 🔁 Já não usamos .backgroundGradient aqui — vem do globals.css */
+/* Elementos decorativos sutis */
+.decorativeElements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle1,
+.circle2,
+.circle3 {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(40px);
+}
+
+.circle1 {
+  width: 260px;
+  height: 260px;
+  top: -130px;
+  right: -130px;
+  background: var(--agroflow-primary-100);
+}
+
+.circle2 {
+  width: 190px;
+  height: 190px;
+  bottom: 18%;
+  left: -90px;
+  background: var(--agroflow-secondary-100);
+}
+
+.circle3 {
+  width: 140px;
+  height: 140px;
+  top: 32%;
+  right: 20%;
+  background: var(--agroflow-primary-200);
+}
+
+/* Tema escuro: ajustes locais por cima do shell global */
+.problem.dark {
+  /* já não precisamos redefinir o background aqui */
+}
+
+.problem.dark .circle1,
+.problem.dark .circle2,
+.problem.dark .circle3 {
+  opacity: 0.2;
+}
+
+/* Container: agora trabalha em conjunto com .agroflow-section-content */
+.container {
+  width: 100%;
+  /* max-width já vem de .agroflow-section-content */
+  margin: 0 auto;
+  padding: 0; /* padding lateral já vem do shell global */
+  position: relative;
+  z-index: 2;
+}
+
+/* Header com cartão (legibilidade sobre qualquer fundo) */
+.problem.dark .header {
+  background: rgba(4, 24, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--agroflow-shadow-lg);
+}
+
+.problem.dark .mainTitle {
+  color: #f5fffb;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.problem.dark .mainSubtitle {
+  color: rgba(214, 239, 227, 0.96);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-3xl);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--agroflow-spacing-xl) var(--agroflow-spacing-2xl);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--agroflow-radius-xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.warningChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-sm);
+  background-color: var(--agroflow-error-500);
+  color: var(--agroflow-text-inverse);
+  font-weight: var(--agroflow-font-semibold);
+  font-size: var(--agroflow-font-size-sm);
+  padding: var(--agroflow-spacing-xs) var(--agroflow-spacing-md);
+  border-radius: 999px;
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.warningIcon {
+  font-size: var(--agroflow-font-size-lg);
+}
+
+.mainTitle {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.15;
+  margin-bottom: var(--agroflow-spacing-md);
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .mainTitle {
+    font-size: var(--agroflow-font-size-5xl);
+  }
+}
+
+.mainSubtitle {
+  color: var(--agroflow-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: var(--agroflow-font-size-lg);
+  font-weight: var(--agroflow-font-medium);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Featured Section */
+.featuredSection {
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .featuredGrid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--agroflow-spacing-2xl);
+  }
+}
+
+.featuredMain,
+.featuredSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-lg);
+}
+
+/* Featured Article */
+.featuredArticle {
+  overflow: hidden;
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-text-primary);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--agroflow-radius-xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.featuredArticle.dark {
+  background: var(--agroflow-background-paper);
+  box-shadow: var(--agroflow-shadow-lg);
+}
+
+.featuredArticle:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--agroflow-shadow-xl);
+}
+
+.featuredContent {
+  padding: var(--agroflow-spacing-2xl);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.featuredChip {
+  background-color: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-700);
+  font-weight: var(--agroflow-font-bold);
+  font-size: var(--agroflow-font-size-xs);
+  padding: var(--agroflow-spacing-xs) var(--agroflow-spacing-md);
+  border-radius: var(--agroflow-radius-md);
+  margin-bottom: var(--agroflow-spacing-lg);
+  width: fit-content;
+  border: var(--agroflow-border-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.featuredIcon {
+  font-size: 3rem;
+  margin-bottom: var(--agroflow-spacing-lg);
+}
+
+.featuredStat {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  margin-bottom: var(--agroflow-spacing-md);
+  line-height: 1.1;
+  color: var(--agroflow-primary-600);
+}
+
+.featuredTitle {
+  font-size: var(--agroflow-font-size-xl);
+  font-weight: var(--agroflow-font-semibold);
+  margin-bottom: var(--agroflow-spacing-md);
+  line-height: 1.3;
+  color: var(--agroflow-text-primary);
+}
+
+.featuredDescription {
+  margin-bottom: var(--agroflow-spacing-lg);
+  line-height: 1.6;
+  flex-grow: 1;
+  color: var(--agroflow-text-secondary);
+  font-size: var(--agroflow-font-size-base);
+}
+
+.featuredFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--agroflow-spacing-md);
+  border-top: var(--agroflow-border-light);
+}
+
+.featuredSource {
+  font-weight: var(--agroflow-font-medium);
+  font-size: var(--agroflow-font-size-sm);
+  color: var(--agroflow-text-tertiary);
+}
+
+.featuredLink {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  color: var(--agroflow-primary-600);
+  font-weight: var(--agroflow-font-medium);
+  font-size: var(--agroflow-font-size-sm);
+}
+
+.linkIcon {
+  font-size: var(--agroflow-font-size-base);
+}
+
+.featuredGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--agroflow-primary-50) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* Article Card */
+.articleCard {
+  padding: var(--agroflow-spacing-xl);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--agroflow-background-paper);
+  box-shadow: var(--agroflow-shadow-md);
+  border: var(--agroflow-border-light);
+  border-radius: var(--agroflow-radius-lg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.articleCard.dark {
+  background: var(--agroflow-background-paper);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.articleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--agroflow-shadow-lg);
+  border-color: var(--agroflow-primary-300);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-md);
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.cardIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.cardStat {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-primary-600);
+  line-height: 1;
+}
+
+.cardTitle {
+  font-weight: var(--agroflow-font-semibold);
+  color: var(--agroflow-text-primary);
+  font-size: var(--agroflow-font-size-lg);
+  line-height: 1.3;
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.cardDescription {
+  margin-bottom: var(--agroflow-spacing-lg);
+  line-height: 1.6;
+  flex-grow: 1;
+  color: var(--agroflow-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--agroflow-spacing-md);
+  border-top: var(--agroflow-border-light);
+}
+
+.cardSource {
+  font-weight: var(--agroflow-font-medium);
+  font-size: var(--agroflow-font-size-xs);
+  color: var(--agroflow-text-tertiary);
+}
+
+.cardLink {
+  transform: translateX(0);
+  transition: transform 0.2s;
+  color: var(--agroflow-primary-600);
+}
+
+.cardLink.hovered {
+  transform: translateX(2px);
+}
+
+/* Video Item */
+.videoItem {
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--agroflow-background-paper);
+  box-shadow: var(--agroflow-shadow-md);
+  border: var(--agroflow-border-light);
+  border-radius: var(--agroflow-radius-lg);
+}
+
+.videoItem.dark {
+  background: var(--agroflow-background-paper);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.videoItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--agroflow-shadow-lg);
+  border-color: var(--agroflow-primary-300);
+}
+
+.videoEmbed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.videoEmbed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--agroflow-radius-lg) var(--agroflow-radius-lg) 0 0;
+}
+
+.videoThumbnail {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background-color: var(--agroflow-primary-50);
+  cursor: pointer;
+  border-radius: var(--agroflow-radius-lg) var(--agroflow-radius-lg) 0 0;
+}
+
+.videoThumbnail:hover .videoOverlay {
+  opacity: 1;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoSkeleton {
+  width: 100%;
+  height: 200px;
+  background-color: var(--agroflow-primary-100);
+  position: absolute;
+}
+
+.thumbnailPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--agroflow-primary-100);
+  flex-direction: column;
+  color: var(--agroflow-text-secondary);
+  text-align: center;
+  padding: var(--agroflow-spacing-lg);
+}
+
+.placeholderIcon {
+  font-size: 2rem;
+  margin-bottom: var(--agroflow-spacing-sm);
+  opacity: 0.7;
+}
+
+.placeholderText {
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-semibold);
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.playButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--agroflow-primary-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--agroflow-text-inverse);
+  transition: transform 0.3s ease;
+}
+
+.playIcon {
+  font-size: 1.5rem;
+  margin-left: 2px;
+}
+
+.videoContent {
+  padding: var(--agroflow-spacing-lg);
+}
+
+.videoMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.videoChannel {
+  font-weight: var(--agroflow-font-semibold);
+  font-size: var(--agroflow-font-size-sm);
+  color: var(--agroflow-primary-600);
+}
+
+.videoDate {
+  font-size: var(--agroflow-font-size-sm);
+  color: var(--agroflow-text-tertiary);
+}
+
+.videoTitle {
+  font-weight: var(--agroflow-font-semibold);
+  color: var(--agroflow-text-primary);
+  font-size: var(--agroflow-font-size-base);
+  line-height: 1.3;
+  margin-bottom: var(--agroflow-spacing-md);
+  min-height: 2.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.videoActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playAction {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  color: var(--agroflow-primary-600);
+  font-weight: var(--agroflow-font-semibold);
+  padding: var(--agroflow-spacing-xs) var(--agroflow-spacing-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--agroflow-font-size-sm);
+  transition: all 0.2s ease;
+}
+
+.playAction:disabled {
+  color: var(--agroflow-text-disabled);
+  cursor: not-allowed;
+}
+
+.playAction:hover:not(:disabled) {
+  color: var(--agroflow-primary-700);
+}
+
+.playActionIcon {
+  font-size: var(--agroflow-font-size-base);
+}
+
+.externalAction {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--agroflow-primary-600);
+  padding: var(--agroflow-spacing-xs);
+  font-size: var(--agroflow-font-size-base);
+  transition: all 0.2s ease;
+}
+
+.externalAction:hover {
+  color: var(--agroflow-primary-700);
+}
+
+.externalIcon {
+  font-size: var(--agroflow-font-size-base);
+}
+
+/* Section Header */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--agroflow-spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--agroflow-spacing-md);
+}
+
+.sectionTitle {
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  font-size: var(--agroflow-font-size-2xl);
+  margin: 0;
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  color: var(--agroflow-primary-600);
+  font-weight: var(--agroflow-font-semibold);
+  border: var(--agroflow-border-light);
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+  border-radius: var(--agroflow-radius-md);
+  background: var(--agroflow-background-paper);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--agroflow-font-size-sm);
+}
+
+.toggleButton:hover {
+  background-color: var(--agroflow-primary-50);
+  border-color: var(--agroflow-primary-400);
+}
+
+.toggleIcon {
+  font-size: var(--agroflow-font-size-sm);
+}
+
+/* Stats Section */
+.statsSection {
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-lg);
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.statItem {
+  width: 100%;
+}
+
+/* Videos Section */
+.videosSection {
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.videosGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-lg);
+}
+
+@media (min-width: 640px) {
+  .videosGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .videosGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.videoItemWrapper {
+  width: 100%;
+}
+
+.videoSkeletonCard {
+  width: 100%;
+}
+
+/* Show More Section */
+.showMoreSection {
+  text-align: center;
+  margin-top: var(--agroflow-spacing-xl);
+}
+
+.showMoreButton {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  color: var(--agroflow-primary-600);
+  border: var(--agroflow-border-light);
+  font-weight: var(--agroflow-font-semibold);
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-lg);
+  border-radius: var(--agroflow-radius-md);
+  background: var(--agroflow-background-paper);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--agroflow-font-size-sm);
+  margin: 0 auto;
+}
+
+.showMoreButton:hover {
+  background-color: var(--agroflow-primary-50);
+  border-color: var(--agroflow-primary-400);
+}
+
+.plusIcon {
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-bold);
+}
+
+/* CTA Section */
+.ctaSection {
+  margin-top: var(--agroflow-spacing-3xl);
+  padding: var(--agroflow-spacing-2xl);
+  text-align: center;
+  background: var(--agroflow-background-paper);
+  backdrop-filter: blur(10px);
+  border-radius: var(--agroflow-radius-xl);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.ctaSection.dark {
+  background: var(--agroflow-background-paper);
+}
+
+.ctaGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--agroflow-primary-50) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaTitle {
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-md);
+  font-size: var(--agroflow-font-size-2xl);
+}
+
+.ctaDescription {
+  color: var(--agroflow-text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+  margin-bottom: var(--agroflow-spacing-md);
+  font-size: var(--agroflow-font-size-lg);
+  line-height: 1.6;
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scrollButton {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--agroflow-primary-200);
+  border-radius: var(--agroflow-radius-lg);
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-primary-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.scrollButton:hover {
+  border-color: var(--agroflow-primary-500);
+  background: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-800);
+  transform: translateY(2px);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+/* Dark mode para o scroll do Problem */
+[data-theme='dark'] .problem .scrollButton {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-border-medium-color);
+  color: var(--agroflow-primary-200);
+}
+
+[data-theme='dark'] .problem .scrollButton:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.18);
+  color: #ffffff;
+}
+
+/* Placeholder Card */
+.placeholderCard {
+  padding: var(--agroflow-spacing-2xl);
+  text-align: center;
+  background: var(--agroflow-background-subtle);
+  border-radius: var(--agroflow-radius-lg);
+  color: var(--agroflow-text-tertiary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .problem {
+    padding: var(--agroflow-spacing-3xl) 0;
+  }
+
+  .featuredGrid {
+    gap: var(--agroflow-spacing-lg);
+  }
+
+  .featuredContent {
+    padding: var(--agroflow-spacing-xl);
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toggleButton {
+    align-self: flex-start;
+  }
+
+  .container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuredContent {
+    padding: var(--agroflow-spacing-lg);
+  }
+
+  .articleCard {
+    padding: var(--agroflow-spacing-lg);
+  }
+
+  .videoContent {
+    padding: var(--agroflow-spacing-lg);
+  }
+
+  .mainTitle {
+    font-size: var(--agroflow-font-size-3xl);
+  }
+
+  .mainSubtitle {
+    font-size: var(--agroflow-font-size-base);
+  }
+}
+
+/* Animações reduzidas */
+@media (prefers-reduced-motion: reduce) {
+  .featuredArticle,
+  .articleCard,
+  .videoItem,
+  .scrollButton,
+  .toggleButton,
+  .showMoreButton {
+    transition: none;
+  }
+
+  .featuredArticle:hover,
+  .articleCard:hover,
+  .videoItem:hover {
+    transform: none;
+  }
+}

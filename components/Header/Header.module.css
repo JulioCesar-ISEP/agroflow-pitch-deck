@@ -1,0 +1,422 @@
+/* components/Header/Header.module.css */
+
+/* ===== HEADER PRINCIPAL ===== */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s ease;
+}
+
+/* Light vs Dark (classe vinda do JSX) */
+.header.light {
+  color: var(--agroflow-text-primary);
+}
+
+.header.dark {
+  color: var(--agroflow-text-primary);
+}
+
+/* Camada visual do fundo (gradiente + vidro) */
+.headerBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.9) 40%,
+      rgba(255, 255, 255, 0.78) 75%,
+      transparent 100%
+    );
+}
+
+/* Dark theme: header mais escuro, alinhado com Hero/About */
+.header.dark .headerBackground {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 12, 7, 0.97) 0%,
+      rgba(4, 24, 16, 0.95) 40%,
+      rgba(2, 17, 11, 0.86) 75%,
+      transparent 100%
+    );
+}
+
+/* Estado scrolled: cartão mais sólido + sombra */
+.header.scrolled {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.header.light.scrolled .headerBackground {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.header.dark.scrolled .headerBackground {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 24, 16, 0.98) 0%,
+      rgba(2, 12, 7, 0.98) 100%
+    );
+  border-bottom-color: rgba(148, 163, 184, 0.25);
+}
+
+/* container interno */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  height: 72px; /* Altura profissional padrão */
+  position: relative;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  text-decoration: none;
+  display: block;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-md);
+  padding: var(--agroflow-spacing-xs) 0;
+}
+
+.logoImage {
+  border-radius: var(--agroflow-radius-sm);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logoMain {
+  font-size: var(--agroflow-font-size-xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-primary-700);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.logoSub {
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Dark tweaks */
+.header.dark .logoMain {
+  color: var(--agroflow-primary-200);
+}
+
+.header.dark .logoSub {
+  color: rgba(226, 232, 240, 0.7);
+}
+
+/* ===== NAVEGAÇÃO DESKTOP ===== */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  margin: 0 auto;
+}
+
+.navLink {
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-secondary);
+  text-decoration: none;
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+  border-radius: var(--agroflow-radius-md);
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--agroflow-primary-700);
+  background: var(--agroflow-primary-50);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--agroflow-primary-500);
+  outline-offset: 2px;
+}
+
+/* Hover no dark mode */
+.header.dark .navLink {
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.header.dark .navLink:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.18);
+  color: #e0fdf3;
+}
+
+/* ===== AÇÕES (lingua + tema + mobile) ===== */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-sm);
+  flex-shrink: 0;
+}
+
+/* Botão Idioma */
+.langBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+  border-radius: var(--agroflow-radius-md);
+  border: var(--agroflow-border-light);
+  background: var(--agroflow-background-default);
+  color: var(--agroflow-text-secondary);
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.langBtn:hover {
+  border-color: var(--agroflow-primary-300);
+  color: var(--agroflow-primary-700);
+  background: var(--agroflow-primary-50);
+}
+
+.header.dark .langBtn {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.header.dark .langBtn:hover {
+  background: rgba(21, 94, 67, 0.85);
+  border-color: rgba(45, 212, 191, 0.6);
+  color: #e0fdf3;
+}
+
+.langText {
+  font-weight: var(--agroflow-font-semibold);
+}
+
+/* Botão Tema */
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--agroflow-radius-md);
+  border: var(--agroflow-border-light);
+  background: var(--agroflow-background-default);
+  color: var(--agroflow-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: var(--agroflow-font-size-lg);
+}
+
+.themeBtn:hover {
+  border-color: var(--agroflow-primary-300);
+  color: var(--agroflow-primary-700);
+  background: var(--agroflow-primary-50);
+}
+
+.header.dark .themeBtn {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.45);
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.header.dark .themeBtn:hover {
+  background: rgba(21, 94, 67, 0.9);
+  border-color: rgba(45, 212, 191, 0.7);
+  color: #e0fdf3;
+}
+
+.themeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: var(--agroflow-font-size-base);
+}
+
+/* ===== MENU MOBILE ===== */
+.mobileBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--agroflow-radius-md);
+  border: var(--agroflow-border-light);
+  background: var(--agroflow-background-default);
+  color: var(--agroflow-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: var(--agroflow-font-size-lg);
+}
+
+.mobileBtn:hover {
+  border-color: var(--agroflow-primary-300);
+  color: var(--agroflow-primary-700);
+  background: var(--agroflow-primary-50);
+}
+
+.header.dark .mobileBtn {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.45);
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.header.dark .mobileBtn:hover {
+  background: rgba(21, 94, 67, 0.9);
+  border-color: rgba(45, 212, 191, 0.7);
+}
+
+.mobileIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--agroflow-font-size-lg);
+  font-weight: var(--agroflow-font-normal);
+}
+
+/* Dropdown mobile */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--agroflow-background-paper);
+  border-radius: 0 0 var(--agroflow-radius-lg) var(--agroflow-radius-lg);
+  box-shadow: var(--agroflow-shadow-lg);
+  padding: var(--agroflow-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-xs);
+  border: var(--agroflow-border-light);
+  border-top: none;
+}
+
+.header.dark .mobileMenu {
+  background: rgba(4, 24, 16, 0.98);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.mobileLink {
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-secondary);
+  text-decoration: none;
+  padding: var(--agroflow-spacing-md);
+  border-radius: var(--agroflow-radius-md);
+  transition: all 0.2s ease;
+}
+
+.mobileLink:hover {
+  color: var(--agroflow-primary-700);
+  background: var(--agroflow-primary-50);
+}
+
+.header.dark .mobileLink {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.header.dark .mobileLink:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.18);
+  color: #e0fdf3;
+}
+
+.mobileLink:focus-visible {
+  outline: 2px solid var(--agroflow-primary-500);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--agroflow-spacing-md);
+    height: 64px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileBtn {
+    display: flex;
+  }
+
+  .logoMain {
+    font-size: var(--agroflow-font-size-lg);
+  }
+
+  .logoSub {
+    font-size: 0.625rem;
+  }
+
+  .logoImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .langBtn span:last-child {
+    display: none;
+  }
+
+  .langBtn {
+    padding: var(--agroflow-spacing-sm);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktopNav {
+    gap: var(--agroflow-spacing-xs);
+  }
+
+  .navLink {
+    padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+    font-size: var(--agroflow-font-size-sm);
+  }
+}
+
+/* ===== ACESSIBILIDADE / REDUÇÃO DE ANIMAÇÕES ===== */
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .langBtn,
+  .themeBtn,
+  .mobileBtn,
+  .mobileLink {
+    transition: none;
+  }
+}
+
+.langBtn:focus-visible,
+.themeBtn:focus-visible,
+.mobileBtn:focus-visible {
+  outline: 2px solid var(--agroflow-primary-500);
+  outline-offset: 2px;
+}

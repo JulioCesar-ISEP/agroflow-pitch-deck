@@ -1,0 +1,1532 @@
+/* components/Solution/Solution.module.css */
+
+/* === SECTION BASE === */
+
+.solution {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--agroflow-spacing-4xl) 0;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  scroll-margin-top: 80px;
+}
+
+/* Background */
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #f8fdf9 0%,
+      #ffffff 45%,
+      #e7f5ee 80%,
+      #d9efe5 100%
+    );
+  z-index: 0;
+}
+
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.05) 0%, transparent 55%);
+  z-index: 1;
+}
+
+/* Dark Mode */
+.solution.dark .backgroundGradient {
+  background:
+    radial-gradient(circle at top left, rgba(65, 179, 96, 0.18), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(30, 197, 250, 0.16), transparent 55%),
+    linear-gradient(
+      135deg,
+      #020c07 0%,
+      #041814 45%,
+      #02110a 90%
+    );
+}
+
+.solution.dark .backgroundPattern {
+  opacity: 0.3;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+/* === HEADER === */
+
+.header {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-4xl);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--agroflow-spacing-xl) var(--agroflow-spacing-2xl);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--agroflow-radius-xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.solution.dark .header {
+  background: rgba(4, 24, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.title {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-sm);
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--agroflow-font-size-5xl);
+  }
+}
+
+.solution.dark .title {
+  color: #f5fffb;
+}
+
+.subtitle {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: var(--agroflow-font-medium);
+  line-height: 1.6;
+}
+
+.solution.dark .subtitle {
+  color: rgba(214, 239, 227, 0.96);
+}
+
+/* === (LEGADO) ARCHITECTURE SECTION / FLOW === */
+
+.architectureSection {
+  margin-bottom: var(--agroflow-spacing-4xl);
+}
+
+.architectureHeader {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.architectureTitle {
+  font-size: var(--agroflow-font-size-3xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.architectureDescription {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flowContainer {
+  position: relative;
+  margin: var(--agroflow-spacing-4xl) 0;
+}
+
+.flowGrid {
+  display: grid;
+  grid-template-areas:
+    "portal portal portal"
+    "solum caput aqua";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--agroflow-spacing-2xl);
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flowItem {
+  position: relative;
+  z-index: 2;
+}
+
+.flowItem.top {
+  grid-area: portal;
+  justify-self: center;
+}
+
+.flowItem.left {
+  grid-area: solum;
+}
+
+.flowItem.center {
+  grid-area: caput;
+}
+
+.flowItem.right {
+  grid-area: aqua;
+}
+
+.flowCard {
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-xl);
+  padding: var(--agroflow-spacing-2xl);
+  border: 2px solid var(--accent-color);
+  box-shadow: var(--agroflow-shadow-lg);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flowCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-color);
+}
+
+.flowCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--agroflow-shadow-xl);
+}
+
+.flowIcon {
+  margin-bottom: var(--agroflow-spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.flowTitle {
+  font-size: var(--agroflow-font-size-lg);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-sm);
+  line-height: 1.3;
+}
+
+.flowDescription {
+  font-size: var(--agroflow-font-size-sm);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--agroflow-spacing-md);
+  flex: 1;
+}
+
+.flowFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-xs);
+}
+
+.flowFeature {
+  font-size: var(--agroflow-font-size-xs);
+  color: var(--agroflow-text-tertiary);
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Flow connections com labels (caso volte a usar a secção de arquitetura) */
+
+.flowConnections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.connectionLine {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-sm);
+}
+
+.connectionLine:nth-child(1) {
+  top: 75%;
+  left: 25%;
+  right: 25%;
+  justify-content: center;
+}
+
+.connectionLine:nth-child(2) {
+  top: 75%;
+  left: 50%;
+  right: 25%;
+  justify-content: center;
+}
+
+.connectionLine:nth-child(3) {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+}
+
+.connectionArrow {
+  font-size: 1.5rem;
+  color: var(--agroflow-primary-500);
+  background: var(--agroflow-background-paper);
+  padding: var(--agroflow-spacing-xs);
+  border-radius: var(--agroflow-radius-sm);
+  border: 2px solid var(--agroflow-primary-300);
+}
+
+.connectionLabel {
+  font-size: var(--agroflow-font-size-xs);
+  color: var(--agroflow-text-tertiary);
+  background: var(--agroflow-background-paper);
+  padding: var(--agroflow-spacing-xs) var(--agroflow-spacing-sm);
+  border-radius: var(--agroflow-radius-sm);
+  border: 1px solid var(--agroflow-border-light-color);
+  white-space: nowrap;
+}
+
+/* Dark mode adjustments para connections */
+
+.solution.dark .connectionArrow {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-primary-400);
+}
+
+.solution.dark .connectionLabel {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-border-light-color);
+}
+
+/* === COMMUNICATION SECTION (3 cards) – opcional === */
+
+.communicationSection {
+  margin-bottom: var(--agroflow-spacing-4xl);
+  text-align: center;
+}
+
+.communicationHeader {
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.communicationTitle {
+  font-size: var(--agroflow-font-size-3xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.communicationDescription {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.communicationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--agroflow-spacing-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.communicationItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--agroflow-spacing-md);
+  padding: var(--agroflow-spacing-xl);
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-lg);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease;
+}
+
+.communicationItem:hover {
+  border-color: var(--agroflow-primary-300);
+  box-shadow: var(--agroflow-shadow-md);
+  transform: translateY(-2px);
+}
+
+.communicationItem span {
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-secondary);
+  text-align: center;
+}
+
+.communicationIcon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wirelessIcon {
+  color: var(--agroflow-primary-600);
+}
+
+.internetIcon {
+  color: var(--agroflow-secondary-600);
+}
+
+.sensorIcon {
+  color: var(--agroflow-primary-500);
+}
+
+.solution.dark .communicationItem {
+  background: var(--agroflow-background-paper);
+  border-color: var(--agroflow-border-light-color);
+}
+
+/* === INFOGRÁFICO: PORTAL + NUVEM + SOLUM/CAPUT/AQUA === */
+
+.infographicSection {
+  margin: var(--agroflow-spacing-4xl) 0;
+  /* cor base apenas para o texto "Internet" */
+  --infographic-comm-icon-color: #ffffff;
+}
+
+/* em light mode: texto escuro */
+.solution:not(.dark) .infographicSection {
+  --infographic-comm-icon-color: var(--agroflow-primary-900);
+}
+
+/* em dark mode: texto claro */
+.solution.dark .infographicSection {
+  --infographic-comm-icon-color: #ffffff;
+}
+
+.infographicTopGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr 1.1fr;
+  gap: var(--agroflow-spacing-2xl);
+  align-items: center;
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.infographicBubble {
+  background: #ffffff;
+  color: var(--agroflow-primary-900);
+  border-radius: 24px;
+  padding: var(--agroflow-spacing-lg);
+  font-weight: var(--agroflow-font-semibold);
+  font-size: var(--agroflow-font-size-sm);
+  line-height: 1.5;
+  box-shadow: var(--agroflow-shadow-lg);
+}
+
+.infographicBubbleSmall {
+  margin-top: var(--agroflow-spacing-md);
+  font-weight: var(--agroflow-font-medium);
+}
+
+.infographicTopCenter {
+  text-align: center;
+}
+
+.portalDevicesWrapper {
+  max-width: 100%;
+  margin-bottom: var(--agroflow-spacing-xs);
+}
+
+.portalDevices {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portalTag {
+  display: inline-block;
+  background: var(--agroflow-primary-600);
+  color: #ffffff;
+  font-size: var(--agroflow-font-size-xs);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: var(--agroflow-font-semibold);
+  margin-top: 4px;
+}
+
+/* Nuvem + Internet (usa internet-cloud.webp) */
+
+.cloudSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.cloudIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--agroflow-spacing-xs);
+}
+
+.cloudIconImage {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+
+.cloudLabel {
+  font-weight: var(--agroflow-font-semibold);
+  letter-spacing: 0.06em;
+  color: var(--infographic-comm-icon-color);
+  text-align: center;
+  margin-top: var(--agroflow-spacing-xs); /* Opcional - para dar espaçamento */
+}
+
+/* Cards inferiores + ondas (onda1/onda2.webp) */
+
+/* Cards inferiores + ondas de comunicação (entre Solum/Caput e Caput/Aqua) */
+
+.infographicBottomGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--agroflow-spacing-2xl);
+  align-items: flex-start;
+}
+
+
+
+
+.deviceCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-sm);
+}
+
+.devicePhotoWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--agroflow-primary-800);
+  box-shadow: var(--agroflow-shadow-xl);
+}
+
+.devicePhoto {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.deviceTag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #ffffff;
+  color: var(--agroflow-primary-800);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-bold);
+}
+
+.deviceBubble,
+.deviceExtra {
+  background: #ffffff;
+  color: var(--agroflow-primary-900);
+  border-radius: 18px;
+  padding: var(--agroflow-spacing-md);
+  font-size: var(--agroflow-font-size-sm);
+  line-height: 1.45;
+  box-shadow: var(--agroflow-shadow-md);
+  text-align: center;
+}
+
+.deviceExtra {
+  font-size: var(--agroflow-font-size-xs);
+}
+
+/* Ícones de ondas (imagem onda1 / onda2) */
+.wirelessWaveLeft,
+.wirelessWaveRight {
+  position: absolute;
+  top: 36%;                 /* ajusta a altura das ondas */
+  transform: translateY(-50%);
+  width: 100px;             /* largura do .webp da onda */
+  height: auto;
+  pointer-events: none;
+  z-index: 3;               /* fica por cima dos cards */
+}
+
+.waveIcon {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* centro entre Solum e Caput */
+.wirelessWaveLeft {
+  left: calc(30.333% - 62px);  /* 50px = metade da largura da onda */
+}
+
+/* centro entre Caput e Aqua */
+.wirelessWaveRight {
+  left: calc(66.666% - 65px);
+}
+
+/* Em mobile escondemos para não poluir o layout */
+@media (max-width: 768px) {
+  .wirelessWaveLeft,
+  .wirelessWaveRight {
+    display: none;
+  }
+}
+
+/* Dark mode para o infográfico */
+
+.solution.dark .infographicBubble,
+.solution.dark .deviceBubble,
+.solution.dark .deviceExtra {
+  background: rgba(4, 24, 16, 0.96);
+  color: rgba(232, 248, 240, 0.98);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.solution.dark .portalTag {
+  background: var(--agroflow-primary-500);
+}
+
+.solution.dark .devicePhotoWrapper {
+  background: #020c07;
+}
+
+/* === DASHBOARD SECTION === */
+
+.dashboardSection {
+  margin: var(--agroflow-spacing-4xl) 0;
+}
+
+.dashboardHeader {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-3xl);
+}
+
+.dashboardTitle {
+  font-size: var(--agroflow-font-size-3xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.dashboardSubtitle {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.6;
+}
+
+.dashboardContainer {
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-xl);
+  padding: var(--agroflow-spacing-3xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.dashboardContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-3xl);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .dashboardContent {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dashboardDemo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Dashboard Simulator */
+/* Dashboard Simulator */
+
+.dashboardSimulator {
+  background: linear-gradient(135deg, #020617 0%, #111827 100%);
+  border-radius: var(--agroflow-radius-lg);
+  padding: var(--agroflow-spacing-2xl);
+  width: 100%;
+  max-width: 520px;
+  box-shadow: var(--agroflow-shadow-xl);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-xl);
+}
+
+/* Topbar interno */
+
+.dashboardTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-lg);
+}
+
+.dashboardTopLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboardAppName {
+  margin: 0;
+  font-size: var(--agroflow-font-size-lg);
+  font-weight: var(--agroflow-font-bold);
+  color: #f9fafb;
+}
+
+.dashboardAppSubtitle {
+  margin: 0;
+  font-size: var(--agroflow-font-size-xs);
+  color: rgba(148, 163, 184, 0.9);
+  max-width: 260px;
+}
+
+.dashboardTopRight {
+  display: flex;
+  align-items: center;
+}
+
+.statusPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  font-size: var(--agroflow-font-size-xs);
+  color: #bbf7d0;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+}
+
+/* Cards de métricas */
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--agroflow-spacing-md);
+}
+
+.metricCard {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: var(--agroflow-radius-md);
+  padding: var(--agroflow-spacing-md);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--agroflow-spacing-xs);
+}
+
+.metricTitle {
+  font-size: var(--agroflow-font-size-xs);
+  color: rgba(156, 163, 175, 0.95);
+}
+
+.metricChip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 10px;
+  color: rgba(209, 213, 219, 0.9);
+}
+
+.metricMainRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--agroflow-spacing-xs);
+}
+
+.metricValue {
+  font-size: var(--agroflow-font-size-xl);
+  font-weight: var(--agroflow-font-bold);
+  color: #e5e7eb;
+}
+
+.metricTrend {
+  font-size: 11px;
+  color: #38bdf8;
+}
+
+.metricSparkline {
+  margin-top: 4px;
+  height: 22px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(34, 197, 94, 0.5), transparent 55%),
+    radial-gradient(circle at 70% 50%, rgba(56, 189, 248, 0.4), transparent 55%),
+    #020617;
+  border: 1px solid rgba(15, 23, 42, 0.9);
+}
+
+/* Grid inferior: gráfico + estado de irrigação */
+
+.dashboardBottomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+  gap: var(--agroflow-spacing-lg);
+  align-items: stretch;
+}
+
+/* Card do gráfico */
+
+.chartCard {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: var(--agroflow-radius-md);
+  padding: var(--agroflow-spacing-md);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-md);
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.chartTitle {
+  margin: 0;
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-semibold);
+  color: #e5e7eb;
+}
+
+.chartSubtitle {
+  margin: 4px 0 0;
+  font-size: var(--agroflow-font-size-xs);
+  color: rgba(148, 163, 184, 0.9);
+  max-width: 260px;
+}
+
+.chartPlaceholder {
+  position: relative;
+  height: 160px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.28), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.28), transparent 60%),
+    #020617;
+  border: 1px solid rgba(15, 23, 42, 0.95);
+  overflow: hidden;
+}
+
+.chartGridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(30, 64, 175, 0.45);
+}
+
+.chartGridLine:nth-child(1) { top: 25%; }
+.chartGridLine:nth-child(2) { top: 50%; }
+.chartGridLine:nth-child(3) { top: 75%; }
+
+.chartGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 70%, rgba(34, 197, 94, 0.9) 0, transparent 55%),
+    radial-gradient(circle at 40% 20%, rgba(34, 197, 94, 0.9) 0, transparent 60%),
+    radial-gradient(circle at 75% 40%, rgba(56, 189, 248, 0.9) 0, transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+/* Estado de irrigação (reaproveita as classes antigas) */
+
+.irrigationStatus {
+  width: 100%;
+}
+
+.statusCard {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--agroflow-radius-md);
+  padding: var(--agroflow-spacing-lg);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.statusCard h4 {
+  color: #ffffff;
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-medium);
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.statusValue {
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.statusBadge {
+  background: var(--agroflow-primary-500);
+  color: #ffffff;
+  padding: var(--agroflow-spacing-xs) var(--agroflow-spacing-sm);
+  border-radius: var(--agroflow-radius-sm);
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-bold);
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--agroflow-primary-400), var(--agroflow-secondary-400));
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.progressText {
+  font-size: var(--agroflow-font-size-xs);
+  color: rgba(209, 213, 219, 0.85);
+}
+
+/* Dashboard Features (lado direito da secção – mantém, só para contexto) */
+
+.dashboardFeatures {
+  display: flex;
+  align-items: center;
+}
+
+.featuresList h3 {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+.portalDescription {
+  font-size: var(--agroflow-font-size-base);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--agroflow-spacing-xl);
+}
+
+.portalFeaturesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-md);
+}
+
+.portalFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-md);
+  padding: var(--agroflow-spacing-md);
+  background: var(--agroflow-background-subtle);
+  border-radius: var(--agroflow-radius-lg);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease;
+}
+
+.portalFeatureItem:hover {
+  border-color: var(--agroflow-primary-300);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.featureCheck {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--agroflow-primary-600);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-bold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.portalFeatureItem span {
+  font-size: var(--agroflow-font-size-sm);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.5;
+}
+
+
+/* === RESULTS SECTION === */
+
+.resultsCard {
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-xl);
+  padding: var(--agroflow-spacing-3xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution.dark .resultsCard {
+  background: var(--agroflow-background-paper);
+  border-color: var(--agroflow-border-light-color);
+}
+
+.resultsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    135deg,
+    var(--agroflow-primary-600) 0%,
+    var(--agroflow-secondary-600) 100%
+  );
+}
+
+.resultsContent {
+  position: relative;
+  z-index: 2;
+}
+
+.resultsTitle {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-2xl);
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .resultsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.resultItem {
+  width: 100%;
+}
+
+.resultContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-md);
+  padding: var(--agroflow-spacing-lg);
+  background: var(--agroflow-background-subtle);
+  border-radius: var(--agroflow-radius-lg);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease;
+}
+
+.solution.dark .resultContent {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-border-light-color);
+}
+
+.resultContent:hover {
+  border-color: var(--agroflow-primary-300);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.resultIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--agroflow-primary-600);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-bold);
+  flex-shrink: 0;
+}
+
+.resultText {
+  font-size: var(--agroflow-font-size-base);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+/* === SCROLL INDICATOR (opcional) === */
+
+.scrollIndicator {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.scrollButton {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--agroflow-primary-200);
+  border-radius: var(--agroflow-radius-lg);
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-primary-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.solution.dark .scrollButton {
+  background: var(--agroflow-background-subtle);
+  color: var(--agroflow-primary-100);
+  border-color: var(--agroflow-border-medium-color);
+}
+
+.scrollButton:hover {
+  border-color: var(--agroflow-primary-500);
+  background: var(--agroflow-primary-50);
+  transform: translateY(2px);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+
+@media (max-width: 768px) {
+  .solution {
+    padding: var(--agroflow-spacing-3xl) 0;
+  }
+
+  .container {
+    padding: 0 var(--agroflow-spacing-md);
+  }
+
+  .title {
+    font-size: var(--agroflow-font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--agroflow-font-size-base);
+  }
+
+  .architectureTitle {
+    font-size: var(--agroflow-font-size-2xl);
+  }
+
+  .flowGrid {
+    grid-template-areas:
+      "portal"
+      "solum"
+      "caput"
+      "aqua";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--agroflow-spacing-xl);
+  }
+
+  .flowConnections {
+    display: none;
+  }
+
+  .dashboardContainer {
+    padding: var(--agroflow-spacing-xl);
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardSimulator {
+    max-width: 100%;
+  }
+
+  .resultsCard {
+    padding: var(--agroflow-spacing-2xl);
+  }
+
+  .flowCard {
+    padding: var(--agroflow-spacing-xl);
+  }
+
+  .communicationGrid {
+    grid-template-columns: 1fr;
+    gap: var(--agroflow-spacing-md);
+  }
+
+  .communicationItem {
+    padding: var(--agroflow-spacing-lg);
+  }
+
+  .infographicTopGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infographicBottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wirelessWaveLeft,
+  .wirelessWaveRight {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .infographicBubble {
+    font-size: var(--agroflow-font-size-xs);
+    padding: var(--agroflow-spacing-md);
+  }
+
+  .deviceBubble,
+  .deviceExtra {
+    font-size: var(--agroflow-font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .portalFeatureItem {
+    padding: var(--agroflow-spacing-sm);
+  }
+
+  .resultContent {
+    padding: var(--agroflow-spacing-md);
+  }
+
+  .flowCard {
+    padding: var(--agroflow-spacing-lg);
+  }
+
+  .communicationTitle {
+    font-size: var(--agroflow-font-size-2xl);
+  }
+
+  .communicationDescription {
+    font-size: var(--agroflow-font-size-base);
+  }
+}
+
+/* === DARK MODE AJUSTES EXTRA === */
+
+.solution.dark .dashboardSimulator {
+  background: linear-gradient(135deg, #0f1419 0%, #1a202c 100%);
+}
+
+.solution.dark .metricCard,
+.solution.dark .statusCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* === ACCESSIBILITY: REDUÇÃO DE ANIMAÇÕES === */
+
+@media (prefers-reduced-motion: reduce) {
+  .flowCard,
+  .portalFeatureItem,
+  .resultContent,
+  .scrollButton {
+    transition: none;
+  }
+
+  .flowCard:hover,
+  .portalFeatureItem:hover,
+  .resultContent:hover {
+    transform: none;
+  }
+
+  .progressFill {
+    transition: none;
+  }
+}
+
+/* ===== PORTAL STATIC IMAGE - GRANDÃO ===== */
+
+.portalStaticContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--agroflow-spacing-2xl) 0;
+}
+
+.portalImageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(34, 197, 94, 0.15);
+  max-width: 1400px;
+  width: 95%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #0a0f1a 0%, #152232 100%);
+}
+
+.portalStaticImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1.05) contrast(1.1);
+}
+
+.portalImageWrapper:hover .portalStaticImage {
+  transform: scale(1.01);
+  filter: brightness(1.1) contrast(1.15);
+}
+
+.portalOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 100%
+  );
+  padding: 3rem 2.5rem 2rem;
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+.portalOverlayContent h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #bbf7d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.portalOverlayContent p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+/* Efeito de brilho adicional */
+.portalImageWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(34, 197, 94, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(56, 189, 248, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 22px;
+}
+
+/* Container do dashboard section para acomodar a imagem grande */
+.dashboardContainer {
+  background: transparent;
+  border-radius: var(--agroflow-radius-xl);
+  padding: var(--agroflow-spacing-4xl) 0;
+  box-shadow: none;
+  border: none;
+  max-width: 100%;
+}
+
+.dashboardContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-4xl);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .dashboardContent {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--agroflow-spacing-4xl);
+  }
+}
+
+.dashboardDemo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  order: 1;
+}
+
+.dashboardFeatures {
+  display: flex;
+  align-items: flex-start;
+  order: 2;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 1023px) {
+  .dashboardContent {
+    grid-template-columns: 1fr;
+    gap: var(--agroflow-spacing-3xl);
+  }
+  
+  .dashboardDemo {
+    order: 1;
+  }
+  
+  .dashboardFeatures {
+    order: 2;
+  }
+  
+  .portalImageWrapper {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .portalOverlay {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  .portalOverlayContent h3 {
+    font-size: 2rem;
+  }
+  
+  .portalOverlayContent p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portalStaticContainer {
+    margin: var(--agroflow-spacing-xl) 0;
+  }
+  
+  .portalImageWrapper {
+    border-radius: 12px;
+  }
+  
+  .portalOverlay {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+  
+  .portalOverlayContent h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .portalOverlayContent p {
+    font-size: 1rem;
+  }
+}
+
+/* Dark mode adjustments */
+.solution.dark .portalImageWrapper {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 80px rgba(34, 197, 94, 0.2);
+}
+
+/* Ajuste no header do dashboard para combinar */
+.dashboardHeader {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-4xl);
+  padding: 0 var(--agroflow-spacing-lg);
+}
+
+.dashboardTitle {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.1;
+  margin-bottom: var(--agroflow-spacing-md);
+  letter-spacing: -0.02em;
+}
+
+.dashboardSubtitle {
+  font-size: var(--agroflow-font-size-xl);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: var(--agroflow-font-medium);
+}
+
+@media (min-width: 768px) {
+  .dashboardTitle {
+    font-size: var(--agroflow-font-size-5xl);
+  }
+  
+  .dashboardSubtitle {
+    font-size: var(--agroflow-font-size-xl);
+  }
+}

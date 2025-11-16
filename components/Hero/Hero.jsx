@@ -1,0 +1,385 @@
+// components/Hero/Hero.jsx - Colmeia hexagonal em formato de flor
+'use client'
+
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { useApp } from '@/lib/context/AppContext'
+import styles from './Hero.module.css'
+
+const HERO_CONTENT = {
+  pt: {
+    title: {
+      line1: 'Irrigação Inteligente',
+      line2: 'Para Todos',
+    },
+    subtitle: 'Solução completa e acessível para pequenos e médios agricultores',
+    stats: [
+      { value: 'Até 50%', label: 'Economia de Água' },
+      { value: '0€', label: 'Substituição de Equipamentos' },
+      { value: '100%', label: 'Energia Solar' },
+    ],
+    buttons: {
+      primary: 'Conhecer Solução',
+      secondary: 'Agendar Demonstração',
+    },
+  },
+  en: {
+    title: {
+      line1: 'Smart Irrigation',
+      line2: 'For Everyone',
+    },
+    subtitle: 'Complete and affordable solution for small and medium farmers',
+    stats: [
+      { value: 'Up to 50%', label: 'Water Savings' },
+      { value: '€0', label: 'Equipment Replacement' },
+      { value: '100%', label: 'Solar Powered' },
+    ],
+    buttons: {
+      primary: 'Learn More',
+      secondary: 'Book a Demo',
+    },
+  },
+}
+
+const IMPACT_PHRASES = {
+  pt: [
+    'Compatível com seus equipamentos atuais - sem custos de substituição',
+    'Solução completa: hardware, software e energia solar integrados',
+    'Monitorize e controle sua irrigação remotamente de qualquer lugar',
+    'Reduza custos e aumente a sustentabilidade da sua produção',
+    'Tecnologia acessível para democratizar a irrigação inteligente',
+    'Implementação rápida em qualquer terreno, mesmo remoto',
+  ],
+  en: [
+    'Compatible with your current equipment - no replacement costs',
+    'Complete solution: integrated hardware, software and solar power',
+    'Monitor and control your irrigation remotely from anywhere',
+    'Reduce costs and increase your production sustainability',
+    'Accessible technology to democratize smart irrigation',
+    'Quick implementation on any terrain, even remote areas',
+  ],
+}
+// Dados para a flor (1 centro + 6 pétalas)
+const HEXAGON_IMAGES = [
+  {
+    id: 1,
+    image:
+      'images/central.webp',
+    alt: 'Sistema AgroFlow - Controlador Principal',
+    position: 'center',
+    icon: '💧', // mantemos, mas o centro usa o layout especial de 3 gotas
+  },
+  {
+    id: 2,
+    image:
+      'https://amperi.com.br/wp-content/uploads/2024/08/celula-fotovoltaica.webp',
+    alt: 'Placas Solares para Energia Sustentável',
+    position: 'top',
+    icon: '',
+  },
+  {
+    id: 3,
+    image:
+      '/images/Aqua.png',
+    alt: 'Agricultura de Precisão',
+    position: 'top-right',
+    icon: '',
+  },
+  {
+    id: 4,
+    image:
+      '/images/Caput.png',
+    alt: 'Sensor de Umidade do Solo',
+    position: 'bottom-right',
+    icon: '',
+  },
+  {
+    id: 5,
+    image:
+      '/images/Solum.png',
+    alt: 'Sistema de Irrigação Inteligente',
+    position: 'bottom',
+    icon: '',
+  },
+  {
+    id: 6,
+    image:
+      '/images/portal-solo.jpg',
+    alt: 'Gestão de Água Eficiente',
+    position: 'bottom-left',
+    icon: '',
+  },
+  {
+    id: 7,
+    image: '/images/Solum.png',
+    alt: 'Interface do Sistema AgroFlow',
+    position: 'top-left',
+    icon: '',
+  },
+]
+
+// posição das pétalas em formato de flor
+const calculateFlowerPosition = (position, petalSize) => {
+  const radius = petalSize * 1.9
+
+  const positions = {
+    center: { x: -65, y: -65 },
+    top: { x: 0, y: -radius },
+    'top-right': {
+      x: radius * Math.cos(Math.PI / 6),
+      y: -radius * Math.sin(Math.PI / 6),
+    },
+    'bottom-right': {
+      x: radius * Math.cos(Math.PI / 6),
+      y: radius * Math.sin(Math.PI / 6),
+    },
+    bottom: { x: 0, y: radius },
+    'bottom-left': {
+      x: -radius * Math.cos(Math.PI / 6),
+      y: radius * Math.sin(Math.PI / 6),
+    },
+    'top-left': {
+      x: -radius * Math.cos(Math.PI / 6),
+      y: -radius * Math.sin(Math.PI / 6),
+    },
+  }
+
+  return positions[position] || { x: 0, y: 0 }
+}
+
+// tamanhos da flor
+const PETAL_SIZE = 110 // raio das pétalas
+const CENTER_SIZE = 180// raio do miolo
+
+export default function Hero() {
+  const { language } = useApp()
+  const [currentPhrase, setCurrentPhrase] = useState(0)
+
+  const content = HERO_CONTENT[language]
+  const phrases = IMPACT_PHRASES[language]
+
+  // Rotação de frases
+  useEffect(() => {
+    setCurrentPhrase(0)
+    const interval = setInterval(() => {
+      setCurrentPhrase((prev) => (prev + 1) % phrases.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [phrases])
+
+  const scrollToNext = () => {
+    const nextSection = document.getElementById('problema')
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section id="hero" className={styles.hero}>
+      {/* Background com gradiente suave */}
+      <div className={styles.backgroundGradient} />
+
+      {/* Elementos decorativos sutis */}
+      <div className={styles.decorativeElements}>
+        <div className={styles.circle1} />
+        <div className={styles.circle2} />
+        <div className={styles.circle3} />
+      </div>
+
+      {/* Conteúdo Principal */}
+      <div className={styles.container}>
+        <div className={styles.contentGrid}>
+          {/* Texto Principal */}
+          <div className={styles.textContent}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className={styles.titleSection}
+            >
+              <h1 className={styles.mainTitle}>
+                <span className={styles.titleLine1}>{content.title.line1}</span>
+                <span className={styles.titleLine2}>{content.title.line2}</span>
+              </h1>
+            </motion.div>
+
+            {/* Frase Dinâmica */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={styles.phraseSection}
+            >
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentPhrase}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className={styles.dynamicPhrase}
+                >
+                  {phrases[currentPhrase]}
+                </motion.p>
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Estatísticas */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className={styles.statsSection}
+            >
+              <div className={styles.statsGrid}>
+                {content.stats.map((stat, index) => (
+                  <div key={index} className={styles.statItem}>
+                    <div className={styles.statValue}>{stat.value}</div>
+                    <div className={styles.statLabel}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Botões de Ação */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className={styles.buttonsSection}
+            >
+              <div className={styles.buttonsGrid}>
+                <Link href="#solucao" className={styles.primaryButton}>
+                  {content.buttons.primary}
+                </Link>
+                <Link href="#contato" className={styles.secondaryButton}>
+                  {content.buttons.secondary}
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Flor de círculos (colmeia) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className={styles.visualSection}
+          >
+            <div className={styles.honeycomb}>
+              {HEXAGON_IMAGES.map((hexagon, index) => {
+                const isCenter = hexagon.position === 'center'
+                const size = isCenter ? CENTER_SIZE : PETAL_SIZE
+                const position = calculateFlowerPosition(
+                  hexagon.position,
+                  PETAL_SIZE
+                )
+                const centerOffset = PETAL_SIZE * 2
+
+                return (
+                  <motion.div
+                    key={hexagon.id}
+                    className={styles.hexagonContainer}
+                    style={{
+                      position: 'absolute',
+                      left: `${position.x + centerOffset}px`,
+                      top: `${position.y + centerOffset}px`,
+                      transformOrigin: 'center center',
+                      zIndex: isCenter ? 5 : 2,
+                    }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.4 + index * 0.1,
+                      type: 'spring',
+                      stiffness: 100,
+                    }}
+                    whileHover={{
+                      scale: 1.15,
+                      zIndex: 10,
+                      transition: { duration: 0.3 },
+                    }}
+                  >
+                    <div
+                      className={`${styles.hexagon} ${isCenter ? styles.centerHexagon : styles.petalHexagon
+                        }`}
+                      style={{
+                        backgroundImage: `url(${hexagon.image})`,
+                        width: `${size * 2}px`,
+                        height: `${size * 2}px`,
+                      }}
+                      aria-label={hexagon.alt}
+                    >
+                      <div className={styles.hexagonOverlay} />
+
+                      {/* Ícone / gotas flutuantes */}
+                      {isCenter ? (
+                        // 🌊 versão especial: 3 gotinhas em coluna só no miolo
+                        <motion.div
+                          className={styles.floatingDrops}
+                          animate={{
+                            y: [0, -25, 0],
+                            rotate: [0, 8, 0],
+                          }}
+                          transition={{
+                            duration: 7,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                          }}
+                        >
+              
+                          <span
+                            className={`${styles.drop} ${styles.dropSmall}`}
+                          >
+                            💧
+                          </span>
+                          <span
+                            className={`${styles.drop} ${styles.dropSmall}`}
+                          >
+                            
+                          </span>
+                          <span
+                            className={`${styles.drop} ${styles.dropLarge}`}
+                          >
+                            💧
+                          </span>
+                        </motion.div>
+                      ) : (
+                        // padrão para as pétalas (se tiver icon)
+                        hexagon.icon && (
+                          <motion.div
+                            className={styles.floatingIcon}
+                            animate={{
+                              y: [0, -8, 0],
+                              scale: [1, 1.1, 1],
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: 'easeInOut',
+                              delay: index * 0.2,
+                            }}
+                          >
+                            {hexagon.icon}
+                          </motion.div>
+                        )
+                      )}
+                    </div>
+                  </motion.div>
+                )
+              })}
+
+              {/* Efeito de brilho geral */}
+              <div className={styles.honeycombGlow} />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      
+    </section>
+  )
+}

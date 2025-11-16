@@ -1,0 +1,562 @@
+/* components/Contact/Contact.module.css */
+
+.contact {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--agroflow-spacing-4xl) 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  scroll-margin-top: 80px;
+}
+
+/* Light vs Dark no wrapper para cores de texto */
+.contact.light {
+  color: var(--agroflow-text-primary);
+}
+
+.contact.dark {
+  color: var(--agroflow-text-primary);
+}
+
+/* Fundo com gradiente suave – alinhado ao About/Solution */
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #f8fdf9 0%,
+      #ffffff 45%,
+      #e7f5ee 80%,
+      #d9efe5 100%
+    );
+  z-index: 0;
+}
+
+.contact.dark .backgroundGradient {
+  background:
+    radial-gradient(circle at top left, rgba(65, 179, 96, 0.18), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(30, 197, 250, 0.16), transparent 55%),
+    linear-gradient(
+      135deg,
+      #020c07 0%,
+      #041814 45%,
+      #02110a 90%
+    );
+}
+
+/* Padrão suave por cima do gradiente */
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.05) 0%, transparent 55%);
+  z-index: 1;
+}
+
+.contact.dark .backgroundPattern {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.08) 0%, transparent 55%);
+}
+
+.container {
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Header em cartão translúcido (como About/Solution) */
+.header {
+  text-align: center;
+  margin-bottom: var(--agroflow-spacing-4xl);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--agroflow-spacing-xl) var(--agroflow-spacing-2xl);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--agroflow-radius-xl);
+  box-shadow: var(--agroflow-shadow-lg);
+  border: var(--agroflow-border-light);
+}
+
+.contact.dark .header {
+  background: rgba(4, 24, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: var(--agroflow-shadow-lg);
+}
+
+.title {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-sm);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--agroflow-font-size-5xl);
+  }
+}
+
+.contact.dark .title {
+  color: #f5fffb;
+}
+
+.subtitle {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: var(--agroflow-font-medium);
+  line-height: 1.6;
+}
+
+.contact.dark .subtitle {
+  color: rgba(214, 239, 227, 0.96);
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: var(--agroflow-spacing-4xl);
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--agroflow-spacing-2xl);
+  }
+}
+
+/* Contact Information */
+.contactInfo {
+  width: 100%;
+}
+
+.contactTitle {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-xl);
+}
+
+.contact.dark .contactTitle {
+  color: var(--agroflow-primary-200);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-md);
+}
+
+.contactCard {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--agroflow-radius-lg);
+  padding: var(--agroflow-spacing-lg);
+  backdrop-filter: blur(12px);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--agroflow-spacing-md);
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.contact.dark .contactCard {
+  background: rgba(4, 24, 16, 0.96);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.contactCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--agroflow-shadow-md);
+  border-color: var(--accent-color);
+}
+
+.contactIcon {
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contact.dark .contactIcon {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.contactDetails {
+  flex: 1;
+}
+
+.contactItemTitle {
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-semibold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact.dark .contactItemTitle {
+  color: #f5fffb;
+}
+
+.contactItemValue {
+  color: var(--agroflow-text-secondary);
+  font-size: var(--agroflow-font-size-sm);
+  margin: 0;
+}
+
+.contact.dark .contactItemValue {
+  color: rgba(214, 239, 227, 0.9);
+}
+
+/* Form Section */
+.formSection {
+  width: 100%;
+}
+
+.formContainer {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--agroflow-spacing-3xl);
+  border-radius: var(--agroflow-radius-xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(16px);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease-in-out;
+}
+
+.contact.dark .formContainer {
+  background: rgba(4, 24, 16, 0.96);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.formTitle {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-primary-700);
+  margin-bottom: var(--agroflow-spacing-xs);
+}
+
+.contact.dark .formTitle {
+  color: var(--agroflow-primary-200);
+}
+
+.formDescription {
+  color: var(--agroflow-text-secondary);
+  margin-bottom: var(--agroflow-spacing-xl);
+  font-size: var(--agroflow-font-size-base);
+}
+
+.contact.dark .formDescription {
+  color: rgba(214, 239, 227, 0.9);
+}
+
+/* Alerts */
+.alert {
+  padding: var(--agroflow-spacing-md) var(--agroflow-spacing-lg);
+  border-radius: var(--agroflow-radius-md);
+  margin-bottom: var(--agroflow-spacing-lg);
+  border: 1px solid;
+}
+
+.alert.success {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.35);
+  color: #166534;
+}
+
+.alert.error {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #b91c1c;
+}
+
+.alertContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--agroflow-spacing-md);
+}
+
+.alertIcon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.1rem;
+}
+
+.alertTitle {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.alertMessage {
+  margin: 0;
+  font-size: var(--agroflow-font-size-sm);
+}
+
+.alertClose {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  margin-left: auto;
+  align-self: flex-start;
+}
+
+.alertClose:hover {
+  opacity: 1;
+}
+
+.errorTips {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.errorTips ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.errorTips li {
+  margin-bottom: 0.25rem;
+}
+
+/* Form Styles */
+.form {
+  width: 100%;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--agroflow-spacing-md);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupFull {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: var(--agroflow-font-semibold);
+  color: var(--agroflow-text-primary);
+  margin-bottom: 0.5rem;
+  font-size: var(--agroflow-font-size-sm);
+}
+
+.contact.dark .label {
+  color: #f5fffb;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(65, 179, 96, 0.2);
+  border-radius: var(--agroflow-radius-md);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--agroflow-text-primary);
+  font-size: var(--agroflow-font-size-base);
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.contact.dark .input,
+.contact.dark .textarea {
+  background: rgba(3, 12, 8, 0.9);
+  color: var(--agroflow-text-primary);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--agroflow-text-tertiary);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--agroflow-primary-500);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(var(--agroflow-primary-500-rgb), 0.18);
+}
+
+.contact.dark .input:focus,
+.contact.dark .textarea:focus {
+  background: rgba(4, 24, 16, 1);
+}
+
+.input.error,
+.textarea.error {
+  border-color: #d32f2f;
+}
+
+.input:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.errorText {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Botão de envio */
+.submitButton {
+  padding: 1rem 2rem;
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-semibold);
+  background: linear-gradient(
+    135deg,
+    var(--agroflow-primary-600) 0%,
+    var(--agroflow-primary-700) 100%
+  );
+  color: #ffffff;
+  border: none;
+  border-radius: var(--agroflow-radius-md);
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(65, 179, 96, 0.35);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    var(--agroflow-primary-500) 0%,
+    var(--agroflow-primary-700) 100%
+  );
+  box-shadow: 0 14px 32px rgba(65, 179, 96, 0.45);
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Scroll to Top – alinhado com os outros scroll buttons */
+.scrollTop {
+  position: absolute;
+  bottom: var(--agroflow-spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.scrollTopButton {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--agroflow-radius-lg);
+  border: 2px solid var(--agroflow-primary-200);
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-primary-700);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.contact.dark .scrollTopButton {
+  background: var(--agroflow-background-subtle);
+  color: var(--agroflow-primary-100);
+  border-color: var(--agroflow-border-medium-color);
+}
+
+.scrollTopButton:hover {
+  background-color: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-700);
+  border-color: var(--agroflow-primary-500);
+  transform: translateY(4px);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+.contact.dark .scrollTopButton:hover {
+  background-color: rgba(var(--agroflow-primary-500-rgb), 0.16);
+  color: #ffffff;
+  border-color: var(--agroflow-primary-500);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--agroflow-spacing-md);
+  }
+
+  .formContainer {
+    padding: var(--agroflow-spacing-2xl);
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: var(--agroflow-spacing-md);
+  }
+
+  .contactCard {
+    padding: var(--agroflow-spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: var(--agroflow-spacing-xl);
+  }
+
+  .scrollTop {
+    bottom: var(--agroflow-spacing-lg);
+  }
+}
+
+/* Animações reduzidas */
+@media (prefers-reduced-motion: reduce) {
+  .submitButton,
+  .scrollTopButton,
+  .contactCard {
+    transition: none;
+  }
+
+  .contactCard:hover,
+  .scrollTopButton:hover {
+    transform: none;
+  }
+}

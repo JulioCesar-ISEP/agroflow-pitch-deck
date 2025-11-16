@@ -1,0 +1,651 @@
+/* components/Hero/Hero.module.css - Flor circular com colmeia */
+
+/* HERO WRAPPER */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--agroflow-background-default);
+  padding: var(--agroflow-spacing-3xl) 0 var(--agroflow-spacing-3xl);
+  scroll-margin-top: 80px;
+}
+
+/* Fundo com imagem + overlay de gradiente para manter legibilidade */
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  /* camadas: véu claro → brilhos de marca → foto */
+  background:
+    /* véu branco à esquerda + gradiente floresta à direita */
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgb(255, 255, 255) 60%,
+      rgba(10, 46, 29, 0) 72%,
+      rgb(26, 77, 52) 100%
+    ),
+    radial-gradient(circle at top left, rgba(144, 228, 254, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(65, 179, 96, 0.2), transparent 50%),
+    url('/images/background.jpeg') center center / cover no-repeat;
+  z-index: 0;
+}
+
+/* Elementos decorativos sutis */
+.decorativeElements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle1,
+.circle2,
+.circle3 {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(40px);
+}
+
+.circle1 {
+  width: 260px;
+  height: 260px;
+  top: -130px;
+  right: -130px;
+  background: var(--agroflow-primary-100);
+}
+
+.circle2 {
+  width: 190px;
+  height: 190px;
+  bottom: 18%;
+  left: -90px;
+  background: var(--agroflow-secondary-100);
+}
+
+.circle3 {
+  width: 140px;
+  height: 140px;
+  top: 32%;
+  right: 22%;
+  background: var(--agroflow-primary-200);
+}
+
+/* Container principal (alinhado ao globals.css) */
+.container {
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Grid de conteúdo */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--agroflow-spacing-3xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--agroflow-spacing-4xl);
+  }
+}
+
+/* Conteúdo de texto */
+.textContent {
+  text-align: center;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .textContent {
+    text-align: left;
+    order: 1;
+    max-width: 540px;
+  }
+}
+
+/* Título */
+.titleSection {
+  margin-bottom: var(--agroflow-spacing-xl);
+}
+
+.mainTitle {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-text-primary);
+  line-height: 1.15;
+  margin-bottom: var(--agroflow-spacing-md);
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+  .mainTitle {
+    font-size: var(--agroflow-font-size-5xl);
+  }
+}
+
+.titleLine2 {
+  display: block;
+  background: var(--agroflow-gradient-natural);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtítulo com foco em legibilidade em cima do fundo */
+.subtitle {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+  font-weight: var(--agroflow-font-medium);
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  .subtitle {
+    text-align: left;
+  }
+}
+
+/* Frase dinâmica */
+.phraseSection {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--agroflow-spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .phraseSection {
+    justify-content: flex-start;
+  }
+}
+
+.dynamicPhrase {
+  font-size: var(--agroflow-font-size-lg);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-primary);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 520px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+@media (min-width: 1024px) {
+  .dynamicPhrase {
+    text-align: left;
+  }
+}
+
+/* Estatísticas */
+.statsSection {
+  margin-bottom: var(--agroflow-spacing-xl);
+}
+
+.statsGrid {
+  display: flex;
+  gap: var(--agroflow-spacing-xl);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .statsGrid {
+    justify-content: flex-start;
+  }
+}
+
+.statItem {
+  text-align: center;
+  padding: var(--agroflow-spacing-md);
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-lg);
+  box-shadow: var(--agroflow-shadow-sm);
+  border: var(--agroflow-border-light);
+  min-width: 120px;
+}
+
+.statValue {
+  font-size: var(--agroflow-font-size-2xl);
+  font-weight: var(--agroflow-font-bold);
+  color: var(--agroflow-primary-600);
+  margin-bottom: var(--agroflow-spacing-xs);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: var(--agroflow-font-size-sm);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-tertiary);
+  line-height: 1.4;
+}
+
+/* Botões - alinhados com tokens globais */
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--agroflow-spacing-sm);
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-lg);
+  font-family: var(--agroflow-font-family);
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-medium);
+  border-radius: var(--agroflow-radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  line-height: 1;
+  min-width: 200px;
+  white-space: nowrap;
+}
+
+/* CTA principal com o gradiente floresta de alto contraste */
+.primaryButton {
+  background: var(--agroflow-gradient-forest);
+  color: #ffffff;
+  box-shadow: var(--agroflow-shadow-sm);
+  border: none;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--agroflow-shadow-md);
+  filter: brightness(1.03);
+}
+
+/* Secundário com borda bem visível */
+.secondaryButton {
+  background: transparent;
+  color: var(--agroflow-primary-700);
+  border: 1.5px solid var(--agroflow-primary-300);
+  box-shadow: none;
+}
+
+.secondaryButton:hover {
+  background: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-800);
+  box-shadow: var(--agroflow-shadow-md);
+  transform: translateY(-1px);
+}
+
+.buttonsSection {
+  margin-top: var(--agroflow-spacing-md);
+}
+
+.buttonsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-md);
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .buttonsGrid {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttonsGrid {
+    justify-content: flex-start;
+  }
+}
+
+/* ===== FLOR CIRCULAR ===== */
+.visualSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  order: 1;
+  margin-top: -1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .visualSection {
+    order: 2;
+    margin-top: 0;
+  }
+}
+
+.honeycomb {
+  position: relative;
+  width: 540px;
+  height: 540px;
+  margin-right: -1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
+  .honeycomb {
+    width: 580px;
+    height: 580px;
+    margin-right: -4rem;
+  }
+}
+
+/* container de cada “pétala” */
+.hexagonContainer {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* base de cada círculo */
+.hexagon {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
+  filter: brightness(0.97) contrast(1.05);
+  overflow: hidden;
+}
+
+/* pétalas (hexagonos circulares menores) */
+.petalHexagon {
+  opacity: 0.95;
+}
+
+/* miolo da flor – maior, por cima e com mais destaque */
+.centerHexagon {
+  border-width: 3px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 8px rgba(255, 255, 255, 0.6);
+  z-index: 5;
+}
+
+/* overlay com o gradiente da marca */
+.hexagonOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--agroflow-gradient-natural);
+  opacity: 0.12;
+  mix-blend-mode: soft-light;
+  transition: opacity 0.3s ease;
+}
+
+/* hover: o contorno e brilho aumentam, mas a animação principal vem do whileHover */
+.hexagon:hover .hexagonOverlay {
+  opacity: 0.18;
+}
+
+/* Ícone flutuante padrão (pétalas) */
+.floatingIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Coluna de gotas flutuantes só no miolo */
+.floatingDrops {
+  position: absolute;
+  top: 14%;
+  left: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.drop {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  line-height: 1;
+}
+
+.dropSmall {
+  font-size: 20px;
+}
+
+.dropMedium {
+  font-size: 28px;
+}
+
+.dropLarge {
+  font-size: 32px;
+}
+
+.honeycombGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(65, 179, 96, 0.9) 0%,
+    rgba(30, 197, 250, 0.75) 28%,
+    transparent 70%
+  );
+  opacity: 0.16;
+  border-radius: 50%;
+  filter: blur(26px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  .honeycombGlow {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--agroflow-spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scrollButton {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--agroflow-primary-200);
+  border-radius: var(--agroflow-radius-lg);
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-primary-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.scrollButton:hover {
+  border-color: var(--agroflow-primary-500);
+  background: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-800);
+  transform: translateY(2px);
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+/* ===== DARK MODE ===== */
+/* Fundo do HERO igual ao ABOUT (modo escuro) */
+[data-theme='dark'] .hero .backgroundGradient {
+  background:
+    radial-gradient(circle at top left, rgba(65, 179, 96, 0.18), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(30, 197, 250, 0.16), transparent 55%),
+    linear-gradient(
+      135deg,
+      #020c07 0%,
+      #041814 45%,
+      #02110a 90%
+    );
+}
+
+[data-theme='dark'] .circle1,
+[data-theme='dark'] .circle2,
+[data-theme='dark'] .circle3 {
+  opacity: 0.2;
+}
+
+[data-theme='dark'] .statItem {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-border-light-color);
+}
+
+[data-theme='dark'] .statValue {
+  color: var(--agroflow-primary-500);
+}
+
+[data-theme='dark'] .scrollButton {
+  background: var(--agroflow-background-subtle);
+  border-color: var(--agroflow-border-medium-color);
+  color: var(--agroflow-primary-200);
+}
+
+[data-theme='dark'] .scrollButton:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.18);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .hexagon {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Botões no dark mode */
+[data-theme='dark'] .secondaryButton {
+  color: var(--agroflow-primary-300);
+  border-color: var(--agroflow-primary-500);
+}
+
+[data-theme='dark'] .secondaryButton:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.15);
+  color: #ffffff;
+  box-shadow: var(--agroflow-shadow-md);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero {
+    padding: calc(64px + var(--agroflow-spacing-3xl)) 0 var(--agroflow-spacing-3xl);
+    min-height: 90vh;
+  }
+
+  .mainTitle {
+    font-size: var(--agroflow-font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--agroflow-font-size-base);
+  }
+
+  .dynamicPhrase {
+    font-size: var(--agroflow-font-size-base);
+  }
+
+  .statsGrid {
+    gap: var(--agroflow-spacing-md);
+  }
+
+  .statItem {
+    min-width: 100px;
+    padding: var(--agroflow-spacing-sm);
+  }
+
+  .statValue {
+    font-size: var(--agroflow-font-size-xl);
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-width: 160px;
+    padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-lg);
+  }
+
+  .honeycomb {
+    width: 380px;
+    height: 380px;
+    margin-right: -0.5rem;
+  }
+
+  .honeycombGlow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .floatingIcon {
+    font-size: 26px;
+  }
+
+  .floatingDrops {
+    top: 16%;
+    left: 16%;
+  }
+
+  .dropSmall {
+    font-size: 18px;
+  }
+
+  .dropMedium {
+    font-size: 28px;
+  }
+
+  .dropLarge {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .honeycomb {
+    width: 320px;
+    height: 320px;
+    margin-right: 0;
+  }
+
+  .honeycombGlow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .floatingIcon {
+    font-size: 22px;
+  }
+}
+
+/* Animações reduzidas */
+@media (prefers-reduced-motion: reduce) {
+  .floatingIcon {
+    animation: none;
+  }
+
+  .primaryButton:hover,
+  .secondaryButton:hover,
+  .scrollButton:hover,
+  .hexagonContainer:hover {
+    transform: none;
+  }
+}

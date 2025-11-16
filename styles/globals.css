@@ -1,0 +1,611 @@
+/* styles/globals.css */
+
+/* ===== VARIÁVEIS CSS - TEMA AGROFLOW (ALINHADO AO BRANDING) ===== */
+:root {
+  /* 🎨 PALETA DE CORES - BRANDING (REVISTA PARA ACESSIBILIDADE) */
+  /* Primitivas de marca (do guia de branding) */
+  --agroflow-brand-green: #2F8A54;           /* Verde principal mais escuro para melhor contraste */
+  --agroflow-brand-green-dark: #0A2E1D;     /* Verde terreno / quase preto */
+  --agroflow-brand-blue: #1EC5FA;           /* Azul rega */
+  --agroflow-brand-blue-soft: #90E4FE;      /* Azul céu */
+  --agroflow-brand-offwhite: #F3FAF7;       /* Neve suave com leve tom verde */
+  --agroflow-brand-gray: #4B5563;           /* Cinza pedra mais escuro (texto secundário) */
+
+  /* Gradiente “floresta” para CTAs e blocos de destaque */
+  --agroflow-gradient-forest: linear-gradient(
+    135deg,
+    #0A2E1D 0%,
+    #1A4D34 50%,
+    #0A2E1D 100%
+  );
+
+  /* Escalas primárias (verdes) – alinhadas ao gradiente florestal */
+  --agroflow-primary-50:  #F4FAF7;
+  --agroflow-primary-100: #E3F2EC;
+  --agroflow-primary-200: #C5E1D5;
+  --agroflow-primary-300: #98C6B2;
+  --agroflow-primary-400: #66A389;
+  --agroflow-primary-500: #2F8A54;          /* Verde principal para textos, ícones e bordas */
+  --agroflow-primary-600: #25624B;
+  --agroflow-primary-700: #1A4D34;          /* Meio do gradiente florestal */
+  --agroflow-primary-800: #0A2E1D;          /* Base do gradiente florestal */
+  --agroflow-primary-900: #05130C;
+
+  /* RGB da cor principal para uso em rgba() */
+  --agroflow-primary-500-rgb: 47, 138, 84;
+
+  /* Escala secundária (azuis) */
+  --agroflow-secondary-50: #f0f9ff;
+  --agroflow-secondary-100: #e0f5ff;
+  --agroflow-secondary-200: var(--agroflow-brand-blue-soft);
+  --agroflow-secondary-300: #5fd7ff;
+  --agroflow-secondary-400: var(--agroflow-brand-blue);
+  --agroflow-secondary-500: #08a9e7;
+  --agroflow-secondary-600: #0484b4;
+  --agroflow-secondary-700: #026188;
+  --agroflow-secondary-800: #024565;
+  --agroflow-secondary-900: #012f46;
+
+  /* Cores neutras (adaptadas ao offwhite de marca) */
+  --agroflow-neutral-50: #f8fafc;
+  --agroflow-neutral-100: #edf1f7;
+  --agroflow-neutral-200: #dde3ef;
+  --agroflow-neutral-300: #c2cadd;
+  --agroflow-neutral-400: #9aa3bd;
+  --agroflow-neutral-500: var(--agroflow-brand-gray);
+  --agroflow-neutral-600: #50566a;
+  --agroflow-neutral-700: #343b4f;
+  --agroflow-neutral-800: #1e2535;
+  --agroflow-neutral-900: #0f172a;
+
+  /* Cores semânticas */
+  --agroflow-success-500: #22c55e;
+  --agroflow-warning-500: #f59e0b;
+  --agroflow-error-500: #ef4444;
+  --agroflow-info-500: #3b82f6;
+
+  /* ===== TOKENS DE DESIGN - TEMA CLARO (DEFAULT) ===== */
+  /* Fundo de página como slide suave */
+  --agroflow-background-default: #F3FAF7;   /* levemente esverdeado, quase branco */
+  --agroflow-background-paper: #ffffff;     /* Cards / blocos */
+  --agroflow-background-subtle: #E6F2EC;   /* Secções alternadas suaves */
+
+  /* Texto com contraste forte sobre fundos claros */
+  --agroflow-text-primary: #081510;        /* quase preto com leve tom verde */
+  --agroflow-text-secondary: #37453F;      /* cinza-esverdeado mais escuro */
+  --agroflow-text-tertiary: #6B7280;
+  --agroflow-text-disabled: #9CA3AF;
+  --agroflow-text-inverse: #ffffff;
+
+  --agroflow-border-light-color: #dde3ef;
+  --agroflow-border-medium-color: #c2cadd;
+
+  --agroflow-border-light: 1px solid var(--agroflow-border-light-color);
+  --agroflow-border-medium: 1px solid var(--agroflow-border-medium-color);
+  --agroflow-border-heavy: 2px solid var(--agroflow-primary-500);
+
+  /* Gradiente subtil de fundo (apenas textura leve, sem matar contraste) */
+  --agroflow-gradient-subtle: linear-gradient(
+    135deg,
+    rgba(10, 46, 29, 0.04) 0%,
+    rgba(30, 197, 250, 0.06) 50%,
+    rgba(26, 77, 52, 0.07) 100%
+  );
+
+  --agroflow-gradient-natural: linear-gradient(
+    135deg,
+    var(--agroflow-primary-500) 0%,
+    var(--agroflow-secondary-400) 100%
+  );
+  --agroflow-gradient-earth: linear-gradient(
+    135deg,
+    var(--agroflow-primary-700) 0%,
+    var(--agroflow-secondary-800) 100%
+  );
+
+  --agroflow-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --agroflow-shadow-md: 0 6px 14px rgba(15, 23, 42, 0.08);
+  --agroflow-shadow-lg: 0 18px 30px rgba(15, 23, 42, 0.12);
+  --agroflow-shadow-xl: 0 28px 50px rgba(15, 23, 42, 0.16);
+
+  --agroflow-radius-sm: 6px;
+  --agroflow-radius-md: 10px;
+  --agroflow-radius-lg: 16px;
+  --agroflow-radius-xl: 24px;
+
+  --agroflow-spacing-xs: 6px;
+  --agroflow-spacing-sm: 10px;
+  --agroflow-spacing-md: 16px;
+  --agroflow-spacing-lg: 24px;
+  --agroflow-spacing-xl: 32px;
+  --agroflow-spacing-2xl: 48px;
+  --agroflow-spacing-3xl: 64px;
+  --agroflow-spacing-4xl: 80px;
+
+  --agroflow-max-width: 1120px;
+
+  /* Tipografia */
+  --agroflow-font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --agroflow-font-size-xs: 0.75rem;     /* 12px */
+  --agroflow-font-size-sm: 0.875rem;    /* 14px */
+  --agroflow-font-size-base: 1rem;      /* 16px */
+  --agroflow-font-size-lg: 1.125rem;    /* 18px */
+  --agroflow-font-size-xl: 1.25rem;     /* 20px */
+  --agroflow-font-size-2xl: 1.5rem;     /* 24px */
+  --agroflow-font-size-3xl: 1.875rem;   /* 30px */
+  --agroflow-font-size-4xl: 2.25rem;    /* 36px */
+  --agroflow-font-size-5xl: 3rem;       /* 48px */
+
+  --agroflow-font-light: 300;
+  --agroflow-font-normal: 400;
+  --agroflow-font-medium: 500;
+  --agroflow-font-semibold: 600;
+  --agroflow-font-bold: 700;
+}
+
+/* ===== TEMA ESCURO ===== */
+[data-theme="dark"] {
+  --agroflow-background-default: #050816;
+  --agroflow-background-paper: #0b101e;
+  --agroflow-background-subtle: #131a2d;
+
+  --agroflow-text-primary: #f9fafb;
+  --agroflow-text-secondary: #e5e7eb;
+  --agroflow-text-tertiary: #9ca3af;
+  --agroflow-text-disabled: #6b7280;
+  --agroflow-text-inverse: #0f172a;
+
+  --agroflow-primary-500: var(--agroflow-brand-green);
+  --agroflow-border-light-color: #334155;
+  --agroflow-border-medium-color: #475569;
+
+  --agroflow-border-light: 1px solid var(--agroflow-border-light-color);
+  --agroflow-border-medium: 1px solid var(--agroflow-border-medium-color);
+  --agroflow-border-heavy: 2px solid var(--agroflow-primary-500);
+
+  --agroflow-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --agroflow-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --agroflow-shadow-lg: 0 18px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--agroflow-font-family);
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-normal);
+  line-height: 1.6;
+  color: var(--agroflow-text-primary);
+  background-color: var(--agroflow-background-default);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ===== TIPOGRAFIA GLOBAL ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--agroflow-font-semibold);
+  line-height: 1.2;
+  color: var(--agroflow-text-primary);
+  margin-bottom: var(--agroflow-spacing-md);
+}
+
+h1 {
+  font-size: var(--agroflow-font-size-4xl);
+  font-weight: var(--agroflow-font-bold);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--agroflow-font-size-3xl);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--agroflow-font-size-2xl);
+}
+
+h4 {
+  font-size: var(--agroflow-font-size-xl);
+}
+
+h5 {
+  font-size: var(--agroflow-font-size-lg);
+}
+
+h6 {
+  font-size: var(--agroflow-font-size-base);
+}
+
+p {
+  margin-bottom: var(--agroflow-spacing-md);
+  color: var(--agroflow-text-secondary);
+  line-height: 1.7;
+}
+
+/* Tipos específicos para pitch (overline / kicker / lead) */
+.pitch-overline {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-semibold);
+  color: var(--agroflow-primary-600);
+  margin-bottom: var(--agroflow-spacing-xs);
+}
+
+.pitch-lead {
+  font-size: var(--agroflow-font-size-lg);
+  color: var(--agroflow-text-secondary);
+  max-width: 60ch;
+}
+
+/* ===== COMPONENTES BASE ===== */
+.agroflow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--agroflow-spacing-sm);
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-lg);
+  font-family: var(--agroflow-font-family);
+  font-size: var(--agroflow-font-size-base);
+  font-weight: var(--agroflow-font-medium);
+  border: none;
+  border-radius: var(--agroflow-radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Botão primário com gradiente florestal e bom contraste */
+.agroflow-button--primary {
+  background: var(--agroflow-gradient-forest);
+  color: #ffffff;
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.agroflow-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--agroflow-shadow-md);
+  filter: brightness(1.03);
+}
+
+.agroflow-button--secondary {
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-primary-700);
+  border: 1.5px solid var(--agroflow-primary-100);
+}
+
+.agroflow-button--secondary:hover {
+  background: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-700);
+  box-shadow: var(--agroflow-shadow-md);
+  transform: translateY(-1px);
+}
+
+.agroflow-button--outlined {
+  background: transparent;
+  color: var(--agroflow-primary-700);
+  border: 1.5px solid var(--agroflow-primary-300);
+}
+
+.agroflow-button--outlined:hover {
+  background: var(--agroflow-primary-50);
+  color: var(--agroflow-primary-800);
+  box-shadow: var(--agroflow-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Correção de contraste no dark mode para secondary e outlined */
+[data-theme="dark"] .agroflow-button--secondary,
+[data-theme="dark"] .agroflow-button--outlined {
+  color: var(--agroflow-secondary-100);
+  border-color: var(--agroflow-primary-500);
+}
+
+[data-theme="dark"] .agroflow-button--secondary:hover,
+[data-theme="dark"] .agroflow-button--outlined:hover {
+  background: rgba(var(--agroflow-primary-500-rgb), 0.16);
+  color: #ffffff;
+}
+
+/* Cards */
+.agroflow-card {
+  background: var(--agroflow-background-paper);
+  border-radius: var(--agroflow-radius-lg);
+  padding: var(--agroflow-spacing-xl);
+  box-shadow: var(--agroflow-shadow-sm);
+  border: var(--agroflow-border-light);
+  transition: all 0.3s ease;
+}
+
+.agroflow-card:hover {
+  box-shadow: var(--agroflow-shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Inputs */
+.agroflow-input {
+  width: 100%;
+  padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+  font-family: var(--agroflow-font-family);
+  font-size: var(--agroflow-font-size-base);
+  border: var(--agroflow-border-light);
+  border-radius: var(--agroflow-radius-md);
+  background: var(--agroflow-background-paper);
+  color: var(--agroflow-text-primary);
+  transition: all 0.2s ease;
+}
+
+.agroflow-input::placeholder {
+  color: var(--agroflow-text-tertiary);
+}
+
+.agroflow-input:focus {
+  outline: none;
+  border-color: var(--agroflow-primary-400);
+  box-shadow: 0 0 0 3px rgba(var(--agroflow-primary-500-rgb), 0.2);
+}
+
+/* ===== LAYOUT / PITCH SECTIONS ===== */
+.container {
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding-inline: var(--agroflow-spacing-lg);
+}
+
+/* base de secção para o pitch deck */
+.section {
+  padding-block: var(--agroflow-spacing-4xl);
+}
+
+.section--large {
+  padding-block: calc(var(--agroflow-spacing-4xl) + 24px);
+}
+
+/* Variações de fundo para controlar o fluxo visual */
+.section--hero {
+  padding-block: calc(var(--agroflow-spacing-4xl) + 24px);
+  background:
+    radial-gradient(circle at top left, rgba(144, 228, 254, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(65, 179, 96, 0.24), transparent 50%),
+    var(--agroflow-background-default);
+}
+
+.section--light {
+  background: var(--agroflow-background-paper);
+}
+
+.section--muted {
+  background: var(--agroflow-background-subtle);
+}
+
+.section--brand {
+  background: var(--agroflow-gradient-natural);
+  color: var(--agroflow-text-inverse);
+}
+
+.section--brand h1,
+.section--brand h2,
+.section--brand h3,
+.section--brand p {
+  color: var(--agroflow-text-inverse);
+}
+
+.section--dark {
+  background: var(--agroflow-gradient-earth);
+  color: var(--agroflow-text-inverse);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark p {
+  color: var(--agroflow-text-inverse);
+}
+
+/* ===== ACESSIBILIDADE ===== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+.agroflow-button:focus-visible {
+  outline: 2px solid var(--agroflow-primary-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --agroflow-border-light: 2px solid var(--agroflow-neutral-700);
+    --agroflow-border-medium: 2px solid var(--agroflow-neutral-900);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  :root {
+    --agroflow-font-size-base: 1rem;
+    --agroflow-font-size-lg: 1.0625rem;
+    --agroflow-font-size-xl: 1.25rem;
+    --agroflow-font-size-2xl: 1.5rem;
+    --agroflow-font-size-3xl: 1.875rem;
+    --agroflow-font-size-4xl: 2.25rem;
+  }
+
+  .section {
+    padding-block: var(--agroflow-spacing-3xl);
+  }
+
+  .section--large,
+  .section--hero {
+    padding-block: var(--agroflow-spacing-3xl);
+  }
+}
+
+/* Scrollbar invisível mas com scroll ativo */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: none;      /* esconde a barra */
+  -ms-overflow-style: none;   /* IE/Edge legado */
+}
+
+body::-webkit-scrollbar {
+  display: none;              /* redundante, mas garante no WebKit */
+}
+
+/* Utilitários */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-xs { margin-bottom: var(--agroflow-spacing-xs); }
+.mb-sm { margin-bottom: var(--agroflow-spacing-sm); }
+.mb-md { margin-bottom: var(--agroflow-spacing-md); }
+.mb-lg { margin-bottom: var(--agroflow-spacing-lg); }
+.mb-xl { margin-bottom: var(--agroflow-spacing-xl); }
+
+.mt-xs { margin-top: var(--agroflow-spacing-xs); }
+.mt-sm { margin-top: var(--agroflow-spacing-sm); }
+.mt-md { margin-top: var(--agroflow-spacing-md); }
+.mt-lg { margin-top: var(--agroflow-spacing-lg); }
+.mt-xl { margin-top: var(--agroflow-spacing-xl); }
+
+.max-width-text {
+  max-width: 60ch;
+}
+
+/* ===== SEÇÃO SHELL GLOBAL COM BG (GRADIENTE + PADRÃO) ===== */
+/* Wrapper genérico de secção com o mesmo comportamento do .about */
+.agroflow-section-shell {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--agroflow-spacing-4xl) 0;
+  overflow: hidden;
+}
+
+/* Texto em função do tema global */
+.agroflow-section-shell--light {
+  color: var(--agroflow-text-primary);
+}
+
+.agroflow-section-shell--dark {
+  color: var(--agroflow-text-primary);
+}
+
+/* Fundo com gradiente suave (modo claro por defeito) */
+.agroflow-section-bgGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #f8fdf9 0%,
+      #ffffff 45%,
+      #e7f5ee 80%,
+      #d9efe5 100%
+    );
+  z-index: 0;
+}
+
+/* Versão dark do mesmo padrão – aplica-se quando o tema global está em dark */
+[data-theme="dark"] .agroflow-section-bgGradient {
+  background:
+    radial-gradient(circle at top left, rgba(65, 179, 96, 0.18), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(30, 197, 250, 0.16), transparent 55%),
+    linear-gradient(
+      135deg,
+      #020c07 0%,
+      #041814 45%,
+      #02110a 90%
+    );
+}
+
+/* Padrão suave por cima do gradiente (igual ao About) */
+.agroflow-section-bgPattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.05) 0%, transparent 55%);
+  z-index: 1;
+}
+
+/* Content container por cima do fundo, igual ao About */
+.agroflow-section-content {
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* ===== TRANSIÇÃO ENTRE SECTIONS – LINHA DE ENERGIA ===== */
+.section-divider {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 0; /* sem espaço extra entre sections, só a linha */
+  pointer-events: none;
+  overflow: visible;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 17, 9, 0) 0%,
+    #2F8A54 18%,
+    #90e4fe 50%,
+    #2F8A54 82%,
+    rgba(2, 17, 9, 0) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(144, 228, 254, 0.35),
+    0 0 18px rgba(65, 179, 96, 0.45);
+  opacity: 0.95;
+}
+
+/* Dark mode – um pouco mais de glow, para aparecer sobre o fundo quase preto */
+[data-theme='dark'] .section-divider::before {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    #2F8A54 20%,
+    #90e4fe 50%,
+    #2F8A54 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  box-shadow:
+    0 0 14px rgba(144, 228, 254, 0.6),
+    0 0 22px rgba(65, 179, 96, 0.7);
+}

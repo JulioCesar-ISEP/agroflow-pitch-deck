@@ -1,0 +1,309 @@
+/* components/Footer/Footer.module.css */
+
+.footer {
+  position: relative;
+  padding-top: var(--agroflow-spacing-3xl);
+  padding-bottom: var(--agroflow-spacing-xl);
+  overflow: hidden;
+}
+
+/* Light = verde MUITO escuro */
+.footer.light {
+  color: #ffffff;
+}
+
+/* Dark = quase preto */
+.footer.dark {
+  color: #ffffff;
+}
+
+/* Fundo com gradiente escuro para o footer */
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #020c06 0%,
+      #042009 45%,
+      #020c06 100%
+    );
+  z-index: 0;
+}
+
+/* No dark: praticamente preto, com um ligeiro brilho subtil */
+.footer.dark .backgroundGradient {
+  background:
+    radial-gradient(circle at top left, rgba(65, 179, 96, 0.06), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(30, 197, 250, 0.04), transparent 60%),
+    linear-gradient(
+      135deg,
+      #000000 0%,
+      #020307 40%,
+      #000000 100%
+    );
+}
+
+/* Padrão suave por cima do gradiente */
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.06) 0%, transparent 55%);
+  z-index: 1;
+}
+
+.footer.dark .backgroundPattern {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(65, 179, 96, 0.10) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(30, 197, 250, 0.08) 0%, transparent 55%);
+}
+
+.container {
+  max-width: var(--agroflow-max-width);
+  margin: 0 auto;
+  padding: 0 var(--agroflow-spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid principal */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--agroflow-spacing-3xl);
+  margin-bottom: var(--agroflow-spacing-2xl);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--agroflow-spacing-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--agroflow-spacing-2xl);
+  }
+}
+
+/* Brand Section */
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-md);
+}
+
+.logo {
+  margin-bottom: var(--agroflow-spacing-sm);
+}
+
+.tagline {
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0;
+  font-size: var(--agroflow-font-size-sm);
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Social Links */
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: var(--agroflow-spacing-md);
+}
+
+.socialButton {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: var(--agroflow-radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.socialButton:hover {
+  transform: translateY(-2px);
+  background-color: rgba(144, 228, 254, 0.18);
+  border-color: #90e4fe;
+  box-shadow: var(--agroflow-shadow-sm);
+}
+
+.socialIcon {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Secções comuns */
+.sectionTitle {
+  font-weight: var(--agroflow-font-semibold);
+  font-size: var(--agroflow-font-size-sm);
+  margin-bottom: var(--agroflow-spacing-lg);
+  margin-top: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  text-decoration: none;
+  font-size: var(--agroflow-font-size-sm);
+  opacity: 0.85;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.link:hover {
+  opacity: 1;
+  transform: translateX(2px);
+  color: #90e4fe;
+}
+
+/* Contact Section */
+.contactSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agroflow-spacing-sm);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contactIcon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  opacity: 0.9;
+  color: #90e4fe;
+}
+
+.contactLink {
+  text-decoration: none;
+  font-size: var(--agroflow-font-size-sm);
+  opacity: 0.9;
+  transition: all 0.25s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contactLink:hover {
+  opacity: 1;
+  color: #90e4fe;
+}
+
+.contactText {
+  font-size: var(--agroflow-font-size-sm);
+  opacity: 0.9;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Legal Section */
+.legalSection {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: var(--agroflow-spacing-3xl) 0 var(--agroflow-spacing-xl);
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--agroflow-spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .bottomSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.copyright {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--agroflow-spacing-md);
+  }
+
+  .grid {
+    gap: var(--agroflow-spacing-lg);
+  }
+
+  .socialLinks {
+    gap: 0.5rem;
+  }
+
+  .socialButton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Animações reduzidas */
+@media (prefers-reduced-motion: reduce) {
+  .socialButton,
+  .link {
+    transition: none;
+  }
+
+  .socialButton:hover,
+  .link:hover {
+    transform: none;
+  }
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #90e4fe,
+    #41b360,
+    transparent
+  );
+  opacity: 0.6;
+}
