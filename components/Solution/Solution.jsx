@@ -10,7 +10,7 @@ const SOLUTION_CONTENT = {
   pt: {
     title: 'A Nossa Solução',
     subtitle: 'Sistema integrado de rega inteligente para pequenos e médios agricultores',
-    portalTitle: 'Portal AgroFlow',
+    portalTitle: 'AgroFlow Portal',
     portalSubtitle: 'Controlo total da sua plantação em qualquer lugar',
     portalDescription: 'Aceda ao portal através de qualquer dispositivo com ligação à Internet para monitorizar e controlar toda a sua operação de rega em tempo real.',
     portalFeatures: [
@@ -47,7 +47,7 @@ const SOLUTION_CONTENT = {
       'Processamento local de dados',
       'Comunicação bidirecional',
     ],
-    portalComponentTitle: 'Portal AgroFlow',
+    portalComponentTitle: 'AgroFlow Portal',
     portalComponentDescription: 'Interface web de gestão completa',
     portalComponentFeatures: [
       'Acesso a partir de qualquer dispositivo com Internet',
@@ -63,7 +63,7 @@ const SOLUTION_CONTENT = {
       'Retorno do investimento em 6-12 meses',
     ],
     dashboardTitle: 'Painel de Controlo',
-    dashboardSubtitle: 'Visualização simulada do Portal AgroFlow',
+    dashboardSubtitle: 'Visualização simulada do AgroFlow Portal',
     communicationTitle: 'Comunicação do Sistema',
     communicationDescription: 'Todos os dispositivos comunicam entre si de forma inteligente'
   },
@@ -160,18 +160,18 @@ const PortalStaticImage = ({ language }) => {
 const SystemInfographic = ({ language, content, isDark }) => {
   const textTopLeft =
     language === 'pt'
-      ? 'Tenha o controlo total da sua plantação em qualquer lugar do mundo, por meio do AgroFlow Portal.'
-      : 'Have full control of your farm from anywhere in the world through AgroFlow Portal.'
+      ? 'Tenha controlo total sobre a sua plantação, em qualquer lugar do mundo, através do AgroFlow Portal.'
+      : 'Have full control of your farm from anywhere in the world through the AgroFlow Portal.'
 
   const textTopCenter =
     language === 'pt'
-      ? 'Para aceder ao Portal, é necessário somente um dispositivo com conexão à Internet.'
-      : 'To access the Portal, you only need a device with an internet connection.'
+      ? 'Para aceder ao Portal, basta um dispositivo com ligação à Internet.'
+      : 'To access the Portal, you only need an internet-connected device.'
 
   const textTopRight =
     language === 'pt'
-      ? 'No Portal poderá aceder ao estado da plantação e irrigação, histórico do sistema, previsão meteorológica, economia hídrica e outras funcionalidades.'
-      : 'In the Portal you can see crop and irrigation status, system history, weather forecast, water savings and more.'
+      ? 'No Portal poderá consultar o estado da plantação e da rega, histórico do sistema, previsão meteorológica, poupança hídrica, entre outras funcionalidades.'
+      : 'In the Portal, you can view crop and irrigation status, system history, weather forecasts, water savings, and more.'
 
   // Ícones de comunicação (light / dark)
   const cloudIconSrc = isDark
@@ -253,13 +253,13 @@ const SystemInfographic = ({ language, content, isDark }) => {
           </div>
           <div className={styles.deviceBubble}>
             {language === 'pt'
-              ? 'Instalado diretamente na sua plantação, verifica em tempo real o estado do solo.'
-              : 'Installed directly in the field, it checks soil status in real time.'}
+              ? 'Instalado diretamente na sua plantação, monitoriza em tempo real o estado do solo.'
+              : 'Installed directly in the field, it monitors soil conditions in real time.'}
           </div>
           <div className={styles.deviceExtra}>
             {language === 'pt'
-              ? 'Alta eficiência energética, podendo permanecer até 5 anos sem necessidade de carregamento.'
-              : 'High energy efficiency, lasting up to 5 years without recharging.'}
+              ? 'Alta eficiência energética, podendo funcionar até 5 anos sem necessidade de carregamento.'
+              : 'Highly energy-efficient, operating for up to 5 years without needing to be recharged.'}
           </div>
         </article>
 
@@ -277,8 +277,8 @@ const SystemInfographic = ({ language, content, isDark }) => {
           </div>
           <div className={styles.deviceBubble}>
             {language === 'pt'
-              ? 'Deve ser posicionado em um local com acesso à internet. Faz a ligação entre os dispositivos instalados no campo e o AgroFlow Portal.'
-              : 'Must be placed where there is internet access. Links field devices to the AgroFlow Portal.'}
+              ? 'Deve ser colocado num local com acesso à Internet. Faz a ligação entre os dispositivos instalados no campo e o AgroFlow Portal.'
+              : 'It must be placed in a location with internet access. It connects all field devices to the AgroFlow Portal.'}
           </div>
         </article>
 
@@ -296,13 +296,13 @@ const SystemInfographic = ({ language, content, isDark }) => {
           </div>
           <div className={styles.deviceBubble}>
             {language === 'pt'
-              ? 'Controla o acionamento do seu sistema de irrigação.'
-              : 'Controls the activation of your irrigation system.'}
+              ? 'Controla o acionamento do sistema de rega.'
+              : 'Controls the activation of the irrigation system.'}
           </div>
           <div className={styles.deviceExtra}>
             {language === 'pt'
-              ? 'Pode ser instalado diretamente no sistema já existente, dispensando a compra de um novo sistema.'
-              : 'Can be installed in the existing system, no need to buy a new one.'}
+              ? 'Pode ser instalado diretamente no sistema já existente, dispensando a compra de um novo.'
+              : 'It can be installed directly in your existing system, eliminating the need to purchase a new one.'}
           </div>
         </article>
 
