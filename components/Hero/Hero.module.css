@@ -1,5 +1,3 @@
-/* components/Hero/Hero.module.css - Flor circular com colmeia */
-
 /* HERO WRAPPER */
 .hero {
   position: relative;
@@ -16,9 +14,7 @@
 .backgroundGradient {
   position: absolute;
   inset: 0;
-  /* camadas: véu claro → brilhos de marca → foto */
   background:
-    /* véu branco à esquerda + gradiente floresta à direita */
     linear-gradient(
       120deg,
       rgba(255, 255, 255, 0.98) 0%,
@@ -30,6 +26,21 @@
     radial-gradient(circle at bottom right, rgba(65, 179, 96, 0.2), transparent 50%),
     url('/images/background.jpeg') center center / cover no-repeat;
   z-index: 0;
+}
+
+/* MOBILE: Fundo simplificado */
+@media (max-width: 768px) {
+  .backgroundGradient {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 40%,
+        rgba(245, 250, 247, 0.9) 100%
+      ),
+      radial-gradient(circle at top right, rgba(144, 228, 254, 0.12), transparent 40%),
+      radial-gradient(circle at bottom left, rgba(65, 179, 96, 0.1), transparent 40%);
+  }
 }
 
 /* Elementos decorativos sutis */
@@ -73,7 +84,16 @@
   background: var(--agroflow-primary-200);
 }
 
-/* Container principal (alinhado ao globals.css) */
+/* MOBILE: Reduzir elementos decorativos */
+@media (max-width: 768px) {
+  .circle1,
+  .circle2,
+  .circle3 {
+    display: none;
+  }
+}
+
+/* Container principal */
 .container {
   max-width: var(--agroflow-max-width);
   margin: 0 auto;
@@ -87,7 +107,7 @@
 .contentGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--agroflow-spacing-3xl);
+  gap: var(--agroflow-spacing-2xl);
   align-items: center;
 }
 
@@ -114,21 +134,28 @@
 
 /* Título */
 .titleSection {
-  margin-bottom: var(--agroflow-spacing-xl);
+  margin-bottom: var(--agroflow-spacing-lg);
 }
 
 .mainTitle {
-  font-size: var(--agroflow-font-size-4xl);
+  font-size: var(--agroflow-font-size-3xl);
   font-weight: var(--agroflow-font-bold);
   color: var(--agroflow-text-primary);
   line-height: 1.15;
-  margin-bottom: var(--agroflow-spacing-md);
-  letter-spacing: -0.03em;
+  margin-bottom: var(--agroflow-spacing-sm);
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .mainTitle {
+    font-size: var(--agroflow-font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainTitle {
     font-size: var(--agroflow-font-size-5xl);
+    margin-bottom: var(--agroflow-spacing-md);
   }
 }
 
@@ -140,46 +167,63 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Subtítulo com foco em legibilidade em cima do fundo */
+/* Subtítulo */
 .subtitle {
-  font-size: var(--agroflow-font-size-lg);
+  font-size: var(--agroflow-font-size-base);
   color: var(--agroflow-text-secondary);
-  max-width: 540px;
+  max-width: 500px;
   margin: 0 auto;
   font-weight: var(--agroflow-font-medium);
-  line-height: 1.6;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: var(--agroflow-font-size-lg);
+    line-height: 1.6;
+  }
 }
 
 @media (min-width: 1024px) {
   .subtitle {
     text-align: left;
+    margin: 0;
   }
 }
 
 /* Frase dinâmica */
 .phraseSection {
-  min-height: 80px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--agroflow-spacing-xl);
+  margin-bottom: var(--agroflow-spacing-lg);
 }
 
 @media (min-width: 1024px) {
   .phraseSection {
     justify-content: flex-start;
+    min-height: 80px;
   }
 }
 
 .dynamicPhrase {
-  font-size: var(--agroflow-font-size-lg);
+  font-size: var(--agroflow-font-size-base);
   font-weight: var(--agroflow-font-medium);
   color: var(--agroflow-text-primary);
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: center;
-  max-width: 520px;
+  max-width: 500px;
   margin: 0;
   opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .dynamicPhrase {
+    font-size: var(--agroflow-font-size-lg);
+    line-height: 1.6;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -190,12 +234,12 @@
 
 /* Estatísticas */
 .statsSection {
-  margin-bottom: var(--agroflow-spacing-xl);
+  margin-bottom: var(--agroflow-spacing-lg);
 }
 
 .statsGrid {
   display: flex;
-  gap: var(--agroflow-spacing-xl);
+  gap: var(--agroflow-spacing-md);
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -203,35 +247,64 @@
 @media (min-width: 1024px) {
   .statsGrid {
     justify-content: flex-start;
+    gap: var(--agroflow-spacing-xl);
   }
 }
 
 .statItem {
   text-align: center;
-  padding: var(--agroflow-spacing-md);
+  padding: var(--agroflow-spacing-sm);
   background: var(--agroflow-background-paper);
-  border-radius: var(--agroflow-radius-lg);
+  border-radius: var(--agroflow-radius-md);
   box-shadow: var(--agroflow-shadow-sm);
   border: var(--agroflow-border-light);
-  min-width: 120px;
+  min-width: 100px;
+  flex: 1;
+  max-width: 120px;
+}
+
+@media (min-width: 768px) {
+  .statItem {
+    min-width: 120px;
+    padding: var(--agroflow-spacing-md);
+    border-radius: var(--agroflow-radius-lg);
+  }
 }
 
 .statValue {
-  font-size: var(--agroflow-font-size-2xl);
+  font-size: var(--agroflow-font-size-lg);
   font-weight: var(--agroflow-font-bold);
   color: var(--agroflow-primary-600);
   margin-bottom: var(--agroflow-spacing-xs);
   line-height: 1;
 }
 
-.statLabel {
-  font-size: var(--agroflow-font-size-sm);
-  font-weight: var(--agroflow-font-medium);
-  color: var(--agroflow-text-tertiary);
-  line-height: 1.4;
+@media (min-width: 768px) {
+  .statValue {
+    font-size: var(--agroflow-font-size-xl);
+  }
 }
 
-/* Botões - alinhados com tokens globais */
+@media (min-width: 1024px) {
+  .statValue {
+    font-size: var(--agroflow-font-size-2xl);
+  }
+}
+
+.statLabel {
+  font-size: var(--agroflow-font-size-xs);
+  font-weight: var(--agroflow-font-medium);
+  color: var(--agroflow-text-tertiary);
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .statLabel {
+    font-size: var(--agroflow-font-size-sm);
+  }
+}
+
+/* Botões */
 .primaryButton,
 .secondaryButton {
   display: inline-flex;
@@ -247,11 +320,11 @@
   transition: all 0.25s ease;
   text-decoration: none;
   line-height: 1;
-  min-width: 200px;
+  width: 100%;
   white-space: nowrap;
 }
 
-/* CTA principal com o gradiente floresta de alto contraste */
+/* CTA principal */
 .primaryButton {
   background: var(--agroflow-gradient-forest);
   color: #ffffff;
@@ -265,7 +338,7 @@
   filter: brightness(1.03);
 }
 
-/* Secundário com borda bem visível */
+/* Secundário */
 .secondaryButton {
   background: transparent;
   color: var(--agroflow-primary-700);
@@ -290,11 +363,18 @@
   gap: var(--agroflow-spacing-md);
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
   .buttonsGrid {
     flex-direction: row;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: auto;
+    min-width: 160px;
   }
 }
 
@@ -302,32 +382,53 @@
   .buttonsGrid {
     justify-content: flex-start;
   }
+  
+  .primaryButton,
+  .secondaryButton {
+    min-width: 200px;
+  }
 }
 
 /* ===== FLOR CIRCULAR ===== */
 .visualSection {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   order: 1;
-  margin-top: -1.5rem;
+  margin: var(--agroflow-spacing-lg) 0;
 }
 
 @media (min-width: 1024px) {
   .visualSection {
     order: 2;
+    justify-content: flex-end;
+    align-items: flex-start;
     margin-top: 0;
   }
 }
 
 .honeycomb {
   position: relative;
-  width: 540px;
-  height: 540px;
-  margin-right: -1.5rem;
+  width: 320px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .honeycomb {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .honeycomb {
+    width: 540px;
+    height: 540px;
+    margin-right: -1.5rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -338,7 +439,7 @@
   }
 }
 
-/* container de cada “pétala” */
+/* container de cada "pétala" */
 .hexagonContainer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -364,7 +465,7 @@
   opacity: 0.95;
 }
 
-/* miolo da flor – maior, por cima e com mais destaque */
+/* miolo da flor */
 .centerHexagon {
   border-width: 3px;
   box-shadow:
@@ -383,9 +484,11 @@
   transition: opacity 0.3s ease;
 }
 
-/* hover: o contorno e brilho aumentam, mas a animação principal vem do whileHover */
-.hexagon:hover .hexagonOverlay {
-  opacity: 0.18;
+/* hover apenas no desktop */
+@media (min-width: 1024px) {
+  .hexagon:hover .hexagonOverlay {
+    opacity: 0.18;
+  }
 }
 
 /* Ícone flutuante padrão (pétalas) */
@@ -394,10 +497,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 32px;
+  font-size: 24px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   z-index: 2;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .floatingIcon {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .floatingIcon {
+    font-size: 32px;
+  }
 }
 
 /* Coluna de gotas flutuantes só no miolo */
@@ -408,7 +523,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   z-index: 3;
   pointer-events: none;
 }
@@ -419,15 +534,47 @@
 }
 
 .dropSmall {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .dropMedium {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .dropLarge {
-  font-size: 32px;
+  font-size: 26px;
+}
+
+@media (min-width: 768px) {
+  .floatingDrops {
+    gap: 8px;
+  }
+  
+  .dropSmall {
+    font-size: 18px;
+  }
+  
+  .dropMedium {
+    font-size: 24px;
+  }
+  
+  .dropLarge {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dropSmall {
+    font-size: 20px;
+  }
+  
+  .dropMedium {
+    font-size: 28px;
+  }
+  
+  .dropLarge {
+    font-size: 32px;
+  }
 }
 
 .honeycombGlow {
@@ -435,8 +582,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px;
-  height: 420px;
+  width: 260px;
+  height: 260px;
   background: radial-gradient(
     circle,
     rgba(65, 179, 96, 0.9) 0%,
@@ -445,9 +592,25 @@
   );
   opacity: 0.16;
   border-radius: 50%;
-  filter: blur(26px);
+  filter: blur(20px);
   z-index: -1;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .honeycombGlow {
+    width: 320px;
+    height: 320px;
+    filter: blur(24px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .honeycombGlow {
+    width: 420px;
+    height: 420px;
+    filter: blur(26px);
+  }
 }
 
 @media (min-width: 1200px) {
@@ -460,17 +623,17 @@
 /* Scroll indicator */
 .scrollIndicator {
   position: absolute;
-  bottom: var(--agroflow-spacing-xl);
+  bottom: var(--agroflow-spacing-lg);
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
 .scrollButton {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border: 2px solid var(--agroflow-primary-200);
-  border-radius: var(--agroflow-radius-lg);
+  border-radius: var(--agroflow-radius-md);
   background: var(--agroflow-background-paper);
   color: var(--agroflow-primary-700);
   cursor: pointer;
@@ -479,6 +642,7 @@
   justify-content: center;
   transition: all 0.3s ease;
   box-shadow: var(--agroflow-shadow-sm);
+  font-size: 16px;
 }
 
 .scrollButton:hover {
@@ -489,8 +653,15 @@
   box-shadow: var(--agroflow-shadow-md);
 }
 
+@media (min-width: 768px) {
+  .scrollButton {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
 /* ===== DARK MODE ===== */
-/* Fundo do HERO igual ao ABOUT (modo escuro) */
 [data-theme='dark'] .hero .backgroundGradient {
   background:
     radial-gradient(circle at top left, rgba(65, 179, 96, 0.18), transparent 60%),
@@ -501,6 +672,21 @@
       #041814 45%,
       #02110a 90%
     );
+}
+
+/* MOBILE: Dark mode simplificado */
+@media (max-width: 768px) {
+  [data-theme='dark'] .backgroundGradient {
+    background:
+      linear-gradient(
+        180deg,
+        #020c07 0%,
+        #041814 40%,
+        #02110a 100%
+      ),
+      radial-gradient(circle at top right, rgba(65, 179, 96, 0.08), transparent 40%),
+      radial-gradient(circle at bottom left, rgba(30, 197, 250, 0.06), transparent 40%);
+  }
 }
 
 [data-theme='dark'] .circle1,
@@ -548,97 +734,85 @@
   box-shadow: var(--agroflow-shadow-md);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/* Responsividade adicional */
+@media (max-width: 480px) {
   .hero {
-    padding: calc(64px + var(--agroflow-spacing-3xl)) 0 var(--agroflow-spacing-3xl);
+    padding: calc(64px + var(--agroflow-spacing-2xl)) 0 var(--agroflow-spacing-2xl);
     min-height: 90vh;
   }
 
   .mainTitle {
-    font-size: var(--agroflow-font-size-3xl);
+    font-size: var(--agroflow-font-size-2xl);
   }
 
   .subtitle {
-    font-size: var(--agroflow-font-size-base);
+    font-size: var(--agroflow-font-size-sm);
   }
 
   .dynamicPhrase {
-    font-size: var(--agroflow-font-size-base);
+    font-size: var(--agroflow-font-size-sm);
   }
 
   .statsGrid {
-    gap: var(--agroflow-spacing-md);
+    gap: var(--agroflow-spacing-sm);
   }
 
   .statItem {
-    min-width: 100px;
-    padding: var(--agroflow-spacing-sm);
+    min-width: 90px;
+    padding: var(--agroflow-spacing-xs);
+    max-width: 100px;
   }
 
   .statValue {
-    font-size: var(--agroflow-font-size-xl);
+    font-size: var(--agroflow-font-size-base);
+  }
+
+  .statLabel {
+    font-size: var(--agroflow-font-size-xs);
   }
 
   .primaryButton,
   .secondaryButton {
-    min-width: 160px;
-    padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-lg);
+    padding: var(--agroflow-spacing-sm) var(--agroflow-spacing-md);
+    font-size: var(--agroflow-font-size-sm);
   }
 
   .honeycomb {
-    width: 380px;
-    height: 380px;
-    margin-right: -0.5rem;
+    width: 280px;
+    height: 280px;
   }
 
   .honeycombGlow {
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
+    filter: blur(16px);
   }
 
   .floatingIcon {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   .floatingDrops {
-    top: 16%;
-    left: 16%;
+    gap: 4px;
   }
 
   .dropSmall {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .dropMedium {
-    font-size: 28px;
+    font-size: 18px;
   }
 
   .dropLarge {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .honeycomb {
-    width: 320px;
-    height: 320px;
-    margin-right: 0;
-  }
-
-  .honeycombGlow {
-    width: 260px;
-    height: 260px;
-  }
-
-  .floatingIcon {
     font-size: 22px;
   }
 }
 
 /* Animações reduzidas */
 @media (prefers-reduced-motion: reduce) {
-  .floatingIcon {
+  .floatingIcon,
+  .floatingDrops {
     animation: none;
   }
 

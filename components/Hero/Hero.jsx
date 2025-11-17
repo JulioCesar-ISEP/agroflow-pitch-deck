@@ -1,4 +1,3 @@
-// components/Hero/Hero.jsx - Colmeia hexagonal em formato de flor
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -60,52 +59,47 @@ const IMPACT_PHRASES = {
     'Quick implementation on any terrain, even remote areas',
   ],
 }
+
 // Dados para a flor (1 centro + 6 pétalas)
 const HEXAGON_IMAGES = [
   {
     id: 1,
-    image:
-      'images/central.webp',
+    image: 'images/central.webp',
     alt: 'Sistema AgroFlow - Controlador Principal',
     position: 'center',
-    icon: '💧', // mantemos, mas o centro usa o layout especial de 3 gotas
+    icon: '💧',
   },
   {
     id: 2,
-    image:
-      'https://amperi.com.br/wp-content/uploads/2024/08/celula-fotovoltaica.webp',
+    image: 'https://amperi.com.br/wp-content/uploads/2024/08/celula-fotovoltaica.webp',
     alt: 'Placas Solares para Energia Sustentável',
     position: 'top',
     icon: '',
   },
   {
     id: 3,
-    image:
-      '/images/Aqua.png',
+    image: '/images/Aqua.png',
     alt: 'Agricultura de Precisão',
     position: 'top-right',
     icon: '',
   },
   {
     id: 4,
-    image:
-      '/images/Caput.png',
+    image: '/images/Caput.png',
     alt: 'Sensor de Umidade do Solo',
     position: 'bottom-right',
     icon: '',
   },
   {
     id: 5,
-    image:
-      '/images/Solum.png',
+    image: '/images/Solum.png',
     alt: 'Sistema de Irrigação Inteligente',
     position: 'bottom',
     icon: '',
   },
   {
     id: 6,
-    image:
-      '/images/portal-solo.jpg',
+    image: '/images/portal-solo.jpg',
     alt: 'Gestão de Água Eficiente',
     position: 'bottom-left',
     icon: '',
@@ -120,8 +114,8 @@ const HEXAGON_IMAGES = [
 ]
 
 // posição das pétalas em formato de flor
-const calculateFlowerPosition = (position, petalSize) => {
-  const radius = petalSize * 1.9
+const calculateFlowerPosition = (position, petalSize, isMobile) => {
+  const radius = isMobile ? petalSize * 1.4 : petalSize * 1.9
 
   const positions = {
     center: { x: -65, y: -65 },
@@ -149,15 +143,29 @@ const calculateFlowerPosition = (position, petalSize) => {
 }
 
 // tamanhos da flor
-const PETAL_SIZE = 110 // raio das pétalas
-const CENTER_SIZE = 180// raio do miolo
+const PETAL_SIZE_DESKTOP = 110
+const PETAL_SIZE_MOBILE = 70
+const CENTER_SIZE_DESKTOP = 180
+const CENTER_SIZE_MOBILE = 120
 
 export default function Hero() {
   const { language } = useApp()
   const [currentPhrase, setCurrentPhrase] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   const content = HERO_CONTENT[language]
   const phrases = IMPACT_PHRASES[language]
+
+  // Detectar se é mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   // Rotação de frases
   useEffect(() => {
@@ -175,6 +183,11 @@ export default function Hero() {
       nextSection.scrollIntoView({ behavior: 'smooth' })
     }
   }
+
+  // Tamanhos responsivos
+  const petalSize = isMobile ? PETAL_SIZE_MOBILE : PETAL_SIZE_DESKTOP
+  const centerSize = isMobile ? CENTER_SIZE_MOBILE : CENTER_SIZE_DESKTOP
+  const honeycombSize = isMobile ? 320 : 540
 
   return (
     <section id="hero" className={styles.hero}>
@@ -203,6 +216,7 @@ export default function Hero() {
                 <span className={styles.titleLine1}>{content.title.line1}</span>
                 <span className={styles.titleLine2}>{content.title.line2}</span>
               </h1>
+              <p className={styles.subtitle}>{content.subtitle}</p>
             </motion.div>
 
             {/* Frase Dinâmica */}
@@ -268,15 +282,22 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.3 }}
             className={styles.visualSection}
           >
-            <div className={styles.honeycomb}>
+            <div
+              className={styles.honeycomb}
+              style={{
+                width: `${honeycombSize}px`,
+                height: `${honeycombSize}px`,
+              }}
+            >
               {HEXAGON_IMAGES.map((hexagon, index) => {
                 const isCenter = hexagon.position === 'center'
-                const size = isCenter ? CENTER_SIZE : PETAL_SIZE
+                const size = isCenter ? centerSize : petalSize
                 const position = calculateFlowerPosition(
                   hexagon.position,
-                  PETAL_SIZE
+                  petalSize,
+                  isMobile
                 )
-                const centerOffset = PETAL_SIZE * 2
+                const centerOffset = isMobile ? petalSize * 1.5 : petalSize * 2
 
                 return (
                   <motion.div
@@ -297,11 +318,11 @@ export default function Hero() {
                       type: 'spring',
                       stiffness: 100,
                     }}
-                    whileHover={{
+                    whileHover={!isMobile ? {
                       scale: 1.15,
                       zIndex: 10,
                       transition: { duration: 0.3 },
-                    }}
+                    } : {}}
                   >
                     <div
                       className={`${styles.hexagon} ${isCenter ? styles.centerHexagon : styles.petalHexagon
@@ -317,12 +338,11 @@ export default function Hero() {
 
                       {/* Ícone / gotas flutuantes */}
                       {isCenter ? (
-                        // 🌊 versão especial: 3 gotinhas em coluna só no miolo
                         <motion.div
                           className={styles.floatingDrops}
                           animate={{
-                            y: [0, -25, 0],
-                            rotate: [0, 8, 0],
+                            y: [0, -15, 0],
+                            rotate: [0, 5, 0],
                           }}
                           transition={{
                             duration: 7,
@@ -330,31 +350,23 @@ export default function Hero() {
                             ease: 'easeInOut',
                           }}
                         >
-              
-                          <span
-                            className={`${styles.drop} ${styles.dropSmall}`}
-                          >
+                          <span className={`${styles.drop} ${styles.dropSmall}`}>
                             💧
                           </span>
-                          <span
-                            className={`${styles.drop} ${styles.dropSmall}`}
-                          >
-                            
+                          <span className={`${styles.drop} ${styles.dropSmall}`}>
+                            💧
                           </span>
-                          <span
-                            className={`${styles.drop} ${styles.dropLarge}`}
-                          >
+                          <span className={`${styles.drop} ${styles.dropLarge}`}>
                             💧
                           </span>
                         </motion.div>
                       ) : (
-                        // padrão para as pétalas (se tiver icon)
                         hexagon.icon && (
                           <motion.div
                             className={styles.floatingIcon}
                             animate={{
-                              y: [0, -8, 0],
-                              scale: [1, 1.1, 1],
+                              y: [0, -6, 0],
+                              scale: [1, 1.05, 1],
                             }}
                             transition={{
                               duration: 3,
@@ -378,8 +390,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      
     </section>
   )
 }
