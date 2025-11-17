@@ -9,11 +9,11 @@ import styles from './About.module.css'
 const ABOUT_CONTENT = {
   pt: {
     title: "Sobre Nós",
-    subtitle: "Democratizando a irrigação inteligente para todos os agricultores",
+    subtitle: "Democratizar a rega inteligente para todos os agricultores",
     missionTitle: "Missão",
     visionTitle: "Visão",
-    mission: "Tornar a irrigação inteligente acessível para pequenos e médios agricultores através de tecnologia compatível, sustentável e de fácil implementação.",
-    vision: "Ser a referência em soluções de irrigação inteligente que empoderam agricultores de todos os tamanhos, promovendo a sustentabilidade e eficiência hídrica.",
+    mission: "Tornar a rega inteligente acessível a pequenos e médios agricultores através de tecnologia compatível, sustentável e de fácil implementação.",
+    vision: "Ser a referência em soluções de rega inteligente que empoderam agricultores de todos os tamanhos, promovendo a sustentabilidade e a eficiência hídrica.",
     description: "Combinamos tecnologia IoT, energia solar e compatibilidade com equipamentos existentes para criar soluções que resolvem problemas reais do campo de forma acessível.",
     valuesTitle: "Os Nossos Valores",
     accessibility: "Acessibilidade",
@@ -29,7 +29,7 @@ const ABOUT_CONTENT = {
     odsSubtitle: "Trabalhamos diretamente com os Objetivos de Desenvolvimento Sustentável da ONU",
     ods2: {
       title: "ODS 2 – Fome Zero",
-      description: "Agricultura sustentável para erradicar a fome e garantir segurança alimentar.",
+      description: "Agricultura sustentável para erradicar a fome e garantir a segurança alimentar.",
       goal: "Aumentar a produtividade agrícola de forma sustentável"
     },
     ods12: {

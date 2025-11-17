@@ -9,12 +9,12 @@ import styles from './Problem.module.css'
 const PROBLEM_DATA = {
   pt: {
     title: 'Desperdício de Água na Agricultura',
-    subtitle: 'Um problema que afeta especialmente pequenos e médios agricultores, impedindo o acesso à irrigação inteligente',
+    subtitle: 'Um problema que afeta especialmente pequenos e médios agricultores, dificultando o acesso à irrigação inteligente',
     problems: [
       {
         title: 'Setor Agrícola Consome 75% da Água em Portugal',
         description:
-          'A agricultura consome 75% da água em Portugal, com sistemas de rega obsoletos que causam desperdícios significativos. Pequenos agricultores são os mais afetados pela falta de tecnologias acessíveis.',
+          'A agricultura consome 75% da água em Portugal, com sistemas de rega obsoletos que provocam desperdícios significativos. Pequenos agricultores são os mais afetados pela falta de tecnologias acessíveis.',
         icon: '💧',
         severity: 'Crítico',
         stat: '75%',
@@ -22,9 +22,9 @@ const PROBLEM_DATA = {
         link: 'https://visao.pt/visao_verde/ambiente/2021-03-18-setor-agricola-responsavel-por-75-da-agua-utilizada-em-portugal-estudo/',
       },
       {
-        title: 'Barreira Econômica para Pequenos Agricultores',
+        title: 'Barreira Económica para Pequenos Agricultores',
         description:
-          'Sistemas de irrigação inteligente tradicionais custam entre €10.000-€50.000, tornando-se inacessíveis para 85% dos agricultores portugueses que são pequenos e médios produtores.',
+          'Sistemas tradicionais de irrigação inteligente custam entre 10.000€ e 50.000€, tornando-se inacessíveis para 85% dos agricultores portugueses, que são pequenos e médios produtores.',
         icon: '💰',
         severity: 'Crítico',
         stat: '85%',
@@ -34,7 +34,7 @@ const PROBLEM_DATA = {
       {
         title: 'Desafios na Gestão Hídrica Agrícola',
         description:
-          'Portugal enfrenta desafios críticos na gestão da água na agricultura, devido à falta de infraestruturas modernas e tecnologia acessível para pequenos produtores.',
+          'Portugal enfrenta desafios críticos na gestão da água na agricultura devido à falta de infraestruturas modernas e de tecnologia acessível para pequenos produtores.',
         icon: '🌾',
         severity: 'Crítico',
         stat: 'Crítico',
@@ -44,7 +44,7 @@ const PROBLEM_DATA = {
       {
         title: 'Incompatibilidade com Equipamentos Existentes',
         description:
-          '70% dos agricultores não podem modernizar sistemas porque soluções atuais exigem substituição completa de válvulas e bombas, com custos proibitivos.',
+          '70% dos agricultores não podem modernizar sistemas porque as soluções atuais exigem substituição completa de válvulas e bombas, com custos proibitivos.',
         icon: '🔌',
         severity: 'Alto',
         stat: '70%',
@@ -74,7 +74,7 @@ const PROBLEM_DATA = {
       {
         title: 'Consumo e Desperdício na Agricultura',
         description:
-          'Análise detalhada sobre como e onde ocorre o desperdício de água nos sistemas agrícolas portugueses, com foco na pequena agricultura.',
+          'Análise detalhada de como e onde ocorre o desperdício de água nos sistemas agrícolas portugueses, com foco na pequena agricultura.',
         icon: '⚙️',
         severity: 'Crítico',
         stat: '60%',
@@ -84,7 +84,7 @@ const PROBLEM_DATA = {
       {
         title: 'Falta de Monitorização Remota',
         description:
-          'Agricultores com terrenos dispersos perdem em média 3 horas diárias em deslocações para verificar sistemas de irrigação manual.',
+          'Agricultores com terrenos dispersos perdem, em média, 3 horas diárias em deslocações para verificar sistemas de irrigação manual.',
         icon: '📱',
         severity: 'Médio',
         stat: '3h/dia',
@@ -122,7 +122,7 @@ const PROBLEM_DATA = {
         link: 'https://aguasesaneamento.pt/acervo-tecnico/desperdicio-de-agua-no-planeta-causas-e-consequencias/',
       },
       {
-        title: 'Portugal desperdiçou 191 milhões de m³ de água em 2023',
+        title: 'Portugal Desperdiçou 191 Milhões de m³ de Água em 2023',
         description:
           'As perdas nas redes de abastecimento custaram quase 152 milhões de euros, com impacto direto na competitividade dos pequenos agricultores.',
         icon: '🚰',
@@ -151,7 +151,7 @@ const PROBLEM_DATA = {
   },
   en: {
     title: 'Water Waste in Agriculture',
-    subtitle: 'A problem that especially affects small and medium farmers, preventing access to smart irrigation',
+    subtitle: 'A problem that especially affects small and medium farmers, limiting access to smart irrigation',
     problems: [
       {
         title: "Agricultural Sector Uses 75% of Portugal's Water",
@@ -166,7 +166,7 @@ const PROBLEM_DATA = {
       {
         title: 'Economic Barrier for Small Farmers',
         description:
-          'Traditional smart irrigation systems cost between €10,000-€50,000, making them inaccessible for 85% of Portuguese farmers who are small and medium producers.',
+          'Traditional smart irrigation systems cost between €10,000 and €50,000, making them inaccessible for 85% of Portuguese farmers who are small and medium producers.',
         icon: '💰',
         severity: 'Critical',
         stat: '85%',
@@ -176,7 +176,7 @@ const PROBLEM_DATA = {
       {
         title: 'Agricultural Water Management Challenges',
         description:
-          'Portugal faces major challenges in agricultural water management due to lack of modern infrastructure and technology accessible to small producers.',
+          'Portugal faces major challenges in agricultural water management due to lack of modern infrastructure and accessible technology for small producers.',
         icon: '🌾',
         severity: 'Critical',
         stat: 'Critical',
@@ -206,7 +206,7 @@ const PROBLEM_DATA = {
       {
         title: 'Grid Dependency in Rural Areas',
         description:
-          '45% of farms in Portugal have limited or no access to electricity grid, preventing traditional automated irrigation systems.',
+          '45% of farms in Portugal have limited or no access to electricity, preventing traditional automated irrigation systems.',
         icon: '⚡',
         severity: 'High',
         stat: '45%',
@@ -216,7 +216,7 @@ const PROBLEM_DATA = {
       {
         title: 'Water Consumption and Waste',
         description:
-          'Detailed analysis of how and where water waste occurs in Portuguese agricultural systems, focusing on small-scale agriculture.',
+          'Detailed analysis of how and where water waste occurs in Portuguese agricultural systems, with focus on small-scale farms.',
         icon: '⚙️',
         severity: 'Critical',
         stat: '60%',
@@ -236,7 +236,7 @@ const PROBLEM_DATA = {
       {
         title: 'Global Water Waste',
         description:
-          'FAO data on global water waste, its causes and consequences for agriculture, highlighting the need for affordable solutions.',
+          'FAO data on global water waste, its causes and impacts on agriculture, highlighting the need for affordable solutions.',
         icon: '🌍',
         severity: 'Critical',
         stat: '75%',
@@ -266,7 +266,7 @@ const PROBLEM_DATA = {
       {
         title: 'Portugal Wasted 191 Million m³ of Water in 2023',
         description:
-          'Losses in water supply networks cost nearly €152 million, with direct impact on small farmers competitiveness.',
+          'Losses in water supply networks cost nearly €152 million, directly impacting small farmers’ competitiveness.',
         icon: '🚰',
         severity: 'High',
         stat: '191M m³',
@@ -276,7 +276,7 @@ const PROBLEM_DATA = {
       {
         title: 'Agriculture is the Largest Water Consumer (70%)',
         description:
-          'Thematic sheet on water scarcity analyzes water availability and pressures on resources in mainland Portugal.',
+          'Thematic sheet on water scarcity analyzing water availability and pressures on resources in mainland Portugal.',
         icon: '💧',
         severity: 'Critical',
         stat: '70%',

@@ -14,12 +14,12 @@ const HERO_CONTENT = {
     },
     subtitle: 'Solução completa e acessível para pequenos e médios agricultores',
     stats: [
-      { value: 'Até 50%', label: 'Economia de Água' },
-      { value: '0€', label: 'Substituição de Equipamentos' },
+      { value: 'Até 50%', label: 'Poupança de Água' },
+      { value: '0€', label: 'Sem Substituição de Equipamentos' },
       { value: '100%', label: 'Energia Solar' },
     ],
     buttons: {
-      primary: 'Conhecer Solução',
+      primary: 'Conhecer a Solução',
       secondary: 'Agendar Demonstração',
     },
   },
@@ -28,10 +28,10 @@ const HERO_CONTENT = {
       line1: 'Smart Irrigation',
       line2: 'For Everyone',
     },
-    subtitle: 'Complete and affordable solution for small and medium farmers',
+    subtitle: 'A complete and affordable solution for small and medium-sized farmers',
     stats: [
       { value: 'Up to 50%', label: 'Water Savings' },
-      { value: '€0', label: 'Equipment Replacement' },
+      { value: '€0', label: 'No Equipment Replacement Needed' },
       { value: '100%', label: 'Solar Powered' },
     ],
     buttons: {
@@ -43,20 +43,20 @@ const HERO_CONTENT = {
 
 const IMPACT_PHRASES = {
   pt: [
-    'Compatível com seus equipamentos atuais - sem custos de substituição',
+    'Compatível com o seu equipamento atual — sem custos de substituição',
     'Solução completa: hardware, software e energia solar integrados',
-    'Monitorize e controle sua irrigação remotamente de qualquer lugar',
+    'Monitorize e controle a sua irrigação remotamente, a partir de qualquer lugar',
     'Reduza custos e aumente a sustentabilidade da sua produção',
     'Tecnologia acessível para democratizar a irrigação inteligente',
-    'Implementação rápida em qualquer terreno, mesmo remoto',
+    'Implementação rápida em qualquer terreno, mesmo em zonas remotas',
   ],
   en: [
-    'Compatible with your current equipment - no replacement costs',
-    'Complete solution: integrated hardware, software and solar power',
+    'Compatible with your existing equipment — no replacement costs',
+    'Complete solution: integrated hardware, software, and solar power',
     'Monitor and control your irrigation remotely from anywhere',
-    'Reduce costs and increase your production sustainability',
+    'Reduce costs and increase the sustainability of your production',
     'Accessible technology to democratize smart irrigation',
-    'Quick implementation on any terrain, even remote areas',
+    'Quick implementation on any terrain, even in remote areas',
   ],
 }
 
