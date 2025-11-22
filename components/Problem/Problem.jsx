@@ -29,7 +29,7 @@ const PROBLEM_DATA = {
         severity: 'Crítico',
         stat: '85%',
         source: 'INE - Agricultura Familiar 2023',
-        link: '#',
+        link: 'https://www.animar-dl.pt/wp-content/uploads/2023/06/modo_visualizacao_revista_afavel.pdf',
       },
       {
         title: 'Desafios na Gestão Hídrica Agrícola',
@@ -49,7 +49,7 @@ const PROBLEM_DATA = {
         severity: 'Alto',
         stat: '70%',
         source: 'Estudo AgroFlow 2024',
-        link: '#',
+        link: 'https://smi.ine.pt/UploadFile/Download/2730',
       },
       {
         title: 'Uso da Água em Portugal',
@@ -69,7 +69,7 @@ const PROBLEM_DATA = {
         severity: 'Alto',
         stat: '45%',
         source: 'INE - Estatísticas Agrícolas',
-        link: '#',
+        link: 'https://smi.ine.pt/UploadFile/Download/2730',
       },
       {
         title: 'Consumo e Desperdício na Agricultura',
@@ -89,7 +89,7 @@ const PROBLEM_DATA = {
         severity: 'Médio',
         stat: '3h/dia',
         source: 'Inquérito AgroFlow',
-        link: '#',
+        link: 'https://repositorio.ipsantarem.pt/bitstream/10400.15/4431/1/OC_DissertMest_AG_abr23.pdf',
       },
       {
         title: 'Desperdício Global de Água',
@@ -109,7 +109,7 @@ const PROBLEM_DATA = {
         severity: 'Médio',
         stat: '70%',
         source: 'Pesquisa AgroFlow',
-        link: '#',
+        link: 'https://lusoai.com/inteligencia-artificial/agricultura-baseada-em-inteligencia-artificial-o-futuro-da-sustentabilidade-em-portugal/',
       },
       {
         title: 'Causas e Impactos Ambientais',
@@ -171,7 +171,7 @@ const PROBLEM_DATA = {
         severity: 'Critical',
         stat: '85%',
         source: 'INE - Family Farming 2023',
-        link: '#',
+        link: 'https://www.animar-dl.pt/wp-content/uploads/2023/06/modo_visualizacao_revista_afavel.pdf',
       },
       {
         title: 'Agricultural Water Management Challenges',
@@ -191,7 +191,7 @@ const PROBLEM_DATA = {
         severity: 'High',
         stat: '70%',
         source: 'AgroFlow Study 2024',
-        link: '#',
+        link: 'https://smi.ine.pt/UploadFile/Download/2730',
       },
       {
         title: 'Water Usage in Portugal',
@@ -211,7 +211,7 @@ const PROBLEM_DATA = {
         severity: 'High',
         stat: '45%',
         source: 'INE - Agricultural Statistics',
-        link: '#',
+        link: 'https://smi.ine.pt/UploadFile/Download/2730',
       },
       {
         title: 'Water Consumption and Waste',
@@ -231,7 +231,7 @@ const PROBLEM_DATA = {
         severity: 'Medium',
         stat: '3h/day',
         source: 'AgroFlow Survey',
-        link: '#',
+        link: 'https://repositorio.ipsantarem.pt/bitstream/10400.15/4431/1/OC_DissertMest_AG_abr23.pdf',
       },
       {
         title: 'Global Water Waste',
@@ -251,7 +251,7 @@ const PROBLEM_DATA = {
         severity: 'Medium',
         stat: '70%',
         source: 'AgroFlow Research',
-        link: '#',
+        link: 'https://lusoai.com/inteligencia-artificial/agricultura-baseada-em-inteligencia-artificial-o-futuro-da-sustentabilidade-em-portugal/',
       },
       {
         title: 'Causes and Environmental Impact',
@@ -266,7 +266,7 @@ const PROBLEM_DATA = {
       {
         title: 'Portugal Wasted 191 Million m³ of Water in 2023',
         description:
-          'Losses in water supply networks cost nearly €152 million, directly impacting small farmers’ competitiveness.',
+          'Losses in water supply networks cost nearly €152 million, directly impacting small farmers.',
         icon: '🚰',
         severity: 'High',
         stat: '191M m³',
@@ -288,7 +288,8 @@ const PROBLEM_DATA = {
     showMore: 'Show More',
     showLess: 'Show Less',
     criticalStats: 'Critical Statistics',
-    documentaries: 'Documentaries & Studies'
+    documentaries: 'Documentaries & Studies',
+    problemChip: 'NATIONAL PROBLEM'
   },
 }
 

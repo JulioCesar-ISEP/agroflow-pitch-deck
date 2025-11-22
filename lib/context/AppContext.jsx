@@ -7,7 +7,7 @@ const AppContext = createContext()
 
 export function AppProvider({ children }) {
     const [language, setLanguage] = useState('pt')
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useState(true) // Alterado para true (dark theme)
     const [isInitialized, setIsInitialized] = useState(false)
 
     // Inicializar com valores salvos
@@ -15,8 +15,21 @@ export function AppProvider({ children }) {
         const savedTheme = localStorage.getItem('agroflow-theme')
         const savedLang = localStorage.getItem('agroflow-language')
 
-        if (savedTheme) setIsDark(savedTheme === 'dark')
-        if (savedLang) setLanguage(savedLang)
+        // Se não há tema salvo, usa dark por padrão
+        if (savedTheme) {
+            setIsDark(savedTheme === 'dark')
+        } else {
+            setIsDark(true) // Força tema dark como padrão
+            localStorage.setItem('agroflow-theme', 'dark')
+        }
+
+        // Se não há idioma salvo, usa pt por padrão
+        if (savedLang) {
+            setLanguage(savedLang)
+        } else {
+            setLanguage('pt') // Força português como padrão
+            localStorage.setItem('agroflow-language', 'pt')
+        }
 
         setIsInitialized(true)
     }, [])
